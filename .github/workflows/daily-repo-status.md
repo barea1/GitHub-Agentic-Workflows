@@ -1,9 +1,9 @@
 ---
 description: |
-  This workflow creates daily repo status reports. It gathers recent repository
-  activity (issues, PRs, discussions, releases, code changes) and generates
-  engaging GitHub issues with productivity insights, community highlights,
-  and project recommendations.
+  Este workflow crea informes diarios del estado del repositorio. Recopila la
+  actividad reciente (issues, PRs, discusiones, releases, cambios de código)
+  y genera issues de GitHub con información de productividad, destacados
+  y recomendaciones para el proyecto.
 
 on:
   schedule: daily
@@ -18,41 +18,42 @@ network: defaults
 
 tools:
   github:
-    # If in a public repo, setting `lockdown: false` allows
-    # reading issues, pull requests and comments from 3rd-parties
-    # If in a private repo this has no particular effect.
+    # En repos públicos, `lockdown: false` permite
+    # leer issues, pull requests y comentarios de terceros.
+    # En repos privados no tiene efecto especial.
     lockdown: false
-    min-integrity: none # This workflow is allowed to examine and comment on any issues
+    min-integrity: none # Este workflow puede examinar y comentar cualquier issue
 
 safe-outputs:
   mentions: false
   allowed-github-references: []
   create-issue:
-    title-prefix: "[repo-status] "
+    title-prefix: "[estado-repo] "
     labels: [report, daily-status]
     close-older-issues: true
 source: githubnext/agentics/workflows/repo-status.md@dcdf09723d42ef9b6c75335e4612fd145d4ccdaa
 ---
 
-# Repo Status
+# Estado del Repositorio
 
-Create an upbeat daily status report for the repo as a GitHub issue.
+Crea un informe diario animado del estado del repositorio como un issue de GitHub.
 
-## What to include
+## Qué incluir
 
-- Recent repository activity (issues, PRs, discussions, releases, code changes)
-- Progress tracking, goal reminders and highlights
-- Project status and recommendations
-- Actionable next steps for maintainers
+- Actividad reciente del repositorio (issues, PRs, discusiones, releases, cambios de código)
+- Seguimiento del progreso, recordatorios de objetivos y logros destacados
+- Estado del proyecto y recomendaciones
+- Próximos pasos concretos para los mantenedores
 
-## Style
+## Estilo
 
-- Be positive, encouraging, and helpful 🌟
-- Use emojis moderately for engagement
-- Keep it concise - adjust length based on actual activity
+- Sé positivo, motivador y útil 🌟
+- Usa emojis con moderación para amenizar
+- Sé conciso — ajusta la longitud según la actividad real
+- Escribe todo el informe en español
 
-## Process
+## Proceso
 
-1. Gather recent activity from the repository
-2. Study the repository, its issues and its pull requests
-3. Create a new GitHub issue with your findings and insights
+1. Recopila la actividad reciente del repositorio
+2. Estudia el repositorio, sus issues y sus pull requests
+3. Crea un nuevo issue de GitHub con tus hallazgos e insights
