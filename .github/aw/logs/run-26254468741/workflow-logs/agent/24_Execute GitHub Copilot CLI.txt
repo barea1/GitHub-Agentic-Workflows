@@ -1,0 +1,430 @@
+﻿2026-05-21T21:35:33.8811488Z ##[group]Run set -o pipefail
+2026-05-21T21:35:33.8811826Z [36;1mset -o pipefail[0m
+2026-05-21T21:35:33.8812159Z [36;1mprintf '%s' "$(date +%s%3N)" > /tmp/gh-aw/agent_cli_start_ms.txt[0m
+2026-05-21T21:35:33.8812556Z [36;1mtouch /tmp/gh-aw/agent-step-summary.md[0m
+2026-05-21T21:35:33.8812920Z [36;1mGH_AW_NODE_BIN=$(command -v node 2>/dev/null || true)[0m
+2026-05-21T21:35:33.8813250Z [36;1mexport GH_AW_NODE_BIN[0m
+2026-05-21T21:35:33.8813536Z [36;1mexport COPILOT_API_KEY="$COPILOT_DUMMY_BYOK"[0m
+2026-05-21T21:35:33.8813890Z [36;1m(umask 177 && touch /tmp/gh-aw/agent-stdio.log)[0m
+2026-05-21T21:35:33.8824419Z [36;1mprintf '%s\n' '{"$schema":"https://github.com/github/gh-aw-firewall/releases/download/v0.25.49/awf-config.schema.json","network":{"allowDomains":["api.business.githubcopilot.com","api.enterprise.githubcopilot.com","api.github.com","api.githubcopilot.com","api.individual.githubcopilot.com","api.snapcraft.io","archive.ubuntu.com","azure.archive.ubuntu.com","crl.geotrust.com","crl.globalsign.com","crl.identrust.com","crl.sectigo.com","crl.thawte.com","crl.usertrust.com","crl.verisign.com","crl3.digicert.com","crl4.digicert.com","crls.ssl.com","github.com","host.docker.internal","json-schema.org","json.schemastore.org","keyserver.ubuntu.com","ocsp.digicert.com","ocsp.geotrust.com","ocsp.globalsign.com","ocsp.identrust.com","ocsp.sectigo.com","ocsp.ssl.com","ocsp.thawte.com","ocsp.usertrust.com","ocsp.verisign.com","packagecloud.io","packages.cloud.google.com","packages.microsoft.com","ppa.launchpad.net","raw.githubusercontent.com","registry.npmjs.org","s.symcb.com","s.symcd.com","security.ubuntu.com","telemetry.enterprise.githubcopilot.com","ts-crl.ws.symantec.com","ts-ocsp.ws.symantec.com","www.googleapis.com"]},"apiProxy":{"enabled":true,"enableTokenSteering":true,"maxRuns":500,"maxEffectiveTokens":25000000,"models":{"agent":["sonnet-6x","gpt-5.4","gpt-5","gemini-pro","haiku","any"],"any":["copilot/*","anthropic/*","openai/*","google/*","gemini/*"],"auto":["large"],"claude":["agent","sonnet-6x","haiku","any"],"codex":["agent","gpt-5-codex","gpt-5","any"],"coding":["copilot/gpt-5*codex*","openai/gpt-5*codex*","gpt-5-codex"],"copilot":["agent","gpt-5.4","sonnet","gpt-5","any"],"deep-research":["copilot/deep-research*","copilot/o3-deep-research*","copilot/o4-mini-deep-research*","google/deep-research*","gemini/deep-research*","openai/o3-deep-research*","openai/o4-mini-deep-research*"],"gemini":["agent","gemini-pro","gemini-flash","any"],"gemini-flash":["copilot/gemini-*flash*","google/gemini-*flash*","gemini/gemini-*flash*"],"gemini-flash-lite":["copilot/gemini-*flash*lite*","google/gemini-*flash*lite*","gemini/gemini-*flash*lite*"],"gemini-pro":["copilot/gemini-*pro*","google/gemini-*pro*","gemini/gemini-*pro*"],"gemma":["copilot/gemma*","google/gemma*","gemini/gemma*"],"gpt-4.1":["copilot/gpt-4.1*","openai/gpt-4.1*"],"gpt-5":["copilot/gpt-5*","openai/gpt-5*"],"gpt-5-codex":["copilot/gpt-5*codex*","openai/gpt-5*codex*"],"gpt-5-mini":["copilot/gpt-5*mini*","openai/gpt-5*mini*"],"gpt-5-nano":["copilot/gpt-5*nano*","openai/gpt-5*nano*"],"gpt-5-pro":["copilot/gpt-5*pro*","openai/gpt-5*pro*"],"haiku":["copilot/*haiku*","anthropic/*haiku*"],"large":["sonnet","gpt-5-pro","gpt-5","gemini-pro"],"mini":["haiku","gpt-5-mini","gpt-5-nano","gemini-flash-lite","copilot/raptor*mini*"],"opus":["copilot/*opus*","anthropic/*opus*"],"reasoning":["copilot/o1*","copilot/o3*","copilot/o4*","openai/o1*","openai/o3*","openai/o4*"],"small":["mini"],"sonnet":["copilot/*sonnet*","anthropic/*sonnet*"],"sonnet-6x":["copilot/*sonnet-4.5*","copilot/*sonnet-4-5*","anthropic/*sonnet-4.5*","anthropic/*sonnet-4-5*","copilot/*sonnet-3.7*","copilot/*sonnet-3-7*","anthropic/*sonnet-3.7*","anthropic/*sonnet-3-7*","copilot/*sonnet-3.5*","copilot/*sonnet-3-5*","anthropic/*sonnet-3.5*","anthropic/*sonnet-3-5*"],"vision":["copilot/gemini-*image*","gemini/gemini-*image*","copilot/gemini-*flash*","gemini/gemini-*flash*"]}},"container":{"imageTag":"0.25.49"}}' > "${RUNNER_TEMP}/gh-aw/awf-config.json"[0m
+2026-05-21T21:35:33.8835405Z [36;1mcp "${RUNNER_TEMP}/gh-aw/awf-config.json" /tmp/gh-aw/awf-config.json[0m
+2026-05-21T21:35:33.8836180Z [36;1mGH_AW_DOCKER_HOST_PATH_PREFIX_ARGS=""[0m
+2026-05-21T21:35:33.8836511Z [36;1mif [[ "${DOCKER_HOST:-}" =~ ^tcp:// ]]; then[0m
+2026-05-21T21:35:33.8836931Z [36;1m  GH_AW_DOCKER_HOST_PATH_PREFIX_ARGS="--docker-host-path-prefix /tmp/gh-aw"[0m
+2026-05-21T21:35:33.8837322Z [36;1mfi[0m
+2026-05-21T21:35:33.8837526Z [36;1m# shellcheck disable=SC1003[0m
+2026-05-21T21:35:33.8839885Z [36;1msudo -E awf --config "${RUNNER_TEMP}/gh-aw/awf-config.json" --container-workdir "${GITHUB_WORKSPACE}" --mount "${RUNNER_TEMP}/gh-aw:${RUNNER_TEMP}/gh-aw:ro" --mount "${RUNNER_TEMP}/gh-aw:/host${RUNNER_TEMP}/gh-aw:ro" ${GH_AW_DOCKER_HOST_PATH_PREFIX_ARGS} --env-all --exclude-env COPILOT_GITHUB_TOKEN --exclude-env GITHUB_MCP_SERVER_TOKEN --exclude-env MCP_GATEWAY_API_KEY --log-level info --proxy-logs-dir /tmp/gh-aw/sandbox/firewall/logs --audit-dir /tmp/gh-aw/sandbox/firewall/audit --enable-host-access --allow-host-ports 80,443,8080 --skip-pull \[0m
+2026-05-21T21:35:33.8844648Z [36;1m  -- /bin/bash -c 'export PATH="${RUNNER_TEMP}/gh-aw/mcp-cli/bin:$PATH" && export PATH="$(find /opt/hostedtoolcache /home/runner/work/_tool -maxdepth 5 -type d -name bin 2>/dev/null | tr '\''\n'\'' '\'':'\'')$PATH"; [ -n "$GOROOT" ] && export PATH="$GOROOT/bin:$PATH" || true && GH_AW_NODE_EXEC="${GH_AW_NODE_BIN:-}"; if [ -z "$GH_AW_NODE_EXEC" ] || [ ! -x "$GH_AW_NODE_EXEC" ]; then GH_AW_NODE_EXEC="$(command -v node 2>/dev/null || true)"; fi; if [ -z "$GH_AW_NODE_EXEC" ]; then echo "node runtime missing on this runner — check runtimes.node in workflow YAML" >&2; exit 127; fi; "$GH_AW_NODE_EXEC" ${RUNNER_TEMP}/gh-aw/actions/copilot_harness.cjs /usr/local/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --allow-all-paths --add-dir "${GITHUB_WORKSPACE}" --prompt-file /tmp/gh-aw/aw-prompts/prompt.txt' 2>&1 | tee -a /tmp/gh-aw/agent-stdio.log[0m
+2026-05-21T21:35:33.8880875Z shell: /usr/bin/bash -e {0}
+2026-05-21T21:35:33.8881129Z env:
+2026-05-21T21:35:33.8881320Z   DEFAULT_BRANCH: master
+2026-05-21T21:35:33.8881562Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-05-21T21:35:33.8881800Z   GH_AW_ASSETS_BRANCH: 
+2026-05-21T21:35:33.8882012Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-05-21T21:35:33.8882300Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-05-21T21:35:33.8882635Z   GH_AW_WORKFLOW_ID_SANITIZED: dailyrepostatus
+2026-05-21T21:35:33.8895384Z   GH_AW_MODEL_MULTIPLIERS: {
+  "version": "1",
+  "description": "Effective Tokens (ET) computation data per the gh-aw Effective Tokens Specification v0.2.0. Token class weights are applied first to normalize across token classes, then the per-model multiplier scales the result relative to the reference model. Model lifecycle: deprecated models must carry a deprecated marker for one minor version before removal (R-REG-009).",
+  "reference_model": "claude-sonnet-4.5",
+  "token_class_weights": {
+    "input": 1.0,
+    "cached_input": 0.1,
+    "output": 4.0,
+    "reasoning": 4.0,
+    "cache_write": 1.0
+  },
+  "multipliers": {
+    "claude-haiku-4-5": 0.33,
+    "claude-haiku-4.5": 0.33,
+    "claude-haiku-4-5-20251001": 0.33,
+    "claude-3-5-haiku": 0.1,
+    "claude-3-haiku": 0.1,
+    "claude-sonnet-4": 1.0,
+    "claude-sonnet-4-20250514": 1.0,
+    "claude-sonnet-4-5": 6.0,
+    "claude-sonnet-4.5": 6.0,
+    "claude-sonnet-4-5-20250929": 6.0,
+    "claude-sonnet-4-6": 9.0,
+    "claude-sonnet-4.6": 9.0,
+    "claude-3-5-sonnet": 1.0,
+    "claude-3-7-sonnet": 1.0,
+    "claude-3-sonnet": 1.0,
+    "claude-opus-4": 5.0,
+    "claude-opus-4-20250514": 5.0,
+    "claude-opus-4-1": 5.0,
+    "claude-opus-4-1-20250805": 5.0,
+    "claude-opus-4-5": 15.0,
+    "claude-opus-4-5-20251101": 15.0,
+    "claude-opus-4-6": 27.0,
+    "claude-opus-4-7": 27.0,
+    "claude-opus-4.5": 15.0,
+    "claude-opus-4.6": 27.0,
+    "claude-3-5-opus": 5.0,
+    "claude-3-opus": 5.0,
+    "gpt-4o": 0.33,
+    "gpt-4o-mini": 0.33,
+    "gpt-4.1": 1.0,
+    "gpt-4.1-2025-04-14": 1.0,
+    "gpt-41-copilot": 1.0,
+    "gpt-4.1-mini": 0.1,
+    "gpt-4.1-nano": 0.05,
+    "gpt-4-turbo": 1.0,
+    "gpt-4": 1.0,
+    "gpt-5": 1.0,
+    "gpt-5-2025-08-07": 1.0,
+    "gpt-5-search-api": 1.0,
+    "gpt-5-search-api-2025-10-14": 1.0,
+    "gpt-5-chat-latest": 1.0,
+    "gpt-5-mini": 0.33,
+    "gpt-5-mini-2025-08-07": 0.33,
+    "gpt-5-nano": 0.05,
+    "gpt-5-nano-2025-08-07": 0.05,
+    "gpt-5-pro": 2.0,
+    "gpt-5-pro-2025-10-06": 2.0,
+    "gpt-5.1": 3.0,
+    "gpt-5.1-2025-11-13": 3.0,
+    "gpt-5.1-chat-latest": 3.0,
+    "gpt-5-codex": 1.0,
+    "gpt-5.1-codex": 3.0,
+    "gpt-5.1-codex-mini": 0.33,
+    "gpt-5.1-codex-max": 3.0,
+    "gpt-5.1-codex-max-customsummarizer": 3.0,
+    "gpt-5.2": 3.0,
+    "gpt-5.2-2025-12-11": 3.0,
+    "gpt-5.2-chat-latest": 3.0,
+    "gpt-5.2-codex": 3.0,
+    "gpt-5.2-pro": 2.0,
+    "gpt-5.2-pro-2025-12-11": 2.0,
+    "gpt-5.3-chat-latest": 3.0,
+    "gpt-5.3-codex": 6.0,
+    "gpt-5.3-codex-api-preview": 6.0,
+    "gpt-5.4": 6.0,
+    "gpt-5.4-2026-03-05": 6.0,
+    "gpt-5.4-mini": 6.0,
+    "gpt-5.4-mini-2026-03-17": 6.0,
+    "gpt-5.4-nano": 0.05,
+    "gpt-5.4-nano-2026-03-17": 0.05,
+    "gpt-5.4-pro": 2.0,
+    "gpt-5.4-pro-2026-03-05": 2.0,
+    "gpt-5.5": 7.5,
+    "gpt-5.5-2026-04-23": 7.5,
+    "gpt-5.5-pro": 2.0,
+    "gpt-5.5-pro-2026-04-23": 2.0,
+    "o1": 3.0,
+    "o1-2024-12-17": 3.0,
+    "o1-mini": 0.5,
+    "o1-pro": 10.0,
+    "o1-pro-2025-03-19": 10.0,
+    "o3": 3.0,
+    "o3-2025-04-16": 3.0,
+    "o3-mini": 0.5,
+    "o3-mini-2025-01-31": 0.5,
+    "o3-pro": 10.0,
+    "o3-pro-2025-06-10": 10.0,
+    "o3-deep-research": 3.0,
+    "o3-deep-research-2025-06-26": 3.0,
+    "o4-mini": 0.5,
+    "o4-mini-2025-04-16": 0.5,
+    "o4-mini-deep-research": 0.5,
+    "o4-mini-deep-research-2025-06-26": 0.5,
+    "gemini-2.5-pro": 1.0,
+    "gemini-2.5-pro-preview-tts": 1.0,
+    "gemini-2.5-flash": 0.2,
+    "gemini-2.5-flash-native-audio-latest": 0.2,
+    "gemini-2.5-flash-native-audio-preview-09-2025": 0.2,
+    "gemini-2.5-flash-native-audio-preview-12-2025": 0.2,
+    "gemini-2.5-flash-preview-tts": 0.2,
+    "gemini-2.5-flash-image": 0.2,
+    "gemini-2.5-flash-lite": 0.1,
+    "gemini-2.0-flash": 0.1,
+    "gemini-2.0-flash-001": 0.1,
+    "gemini-2.0-flash-lite": 0.1,
+    "gemini-2.0-flash-lite-001": 0.1,
+    "gemini-1.5-pro": 1.0,
+    "gemini-1.5-flash": 0.1,
+    "gemini-flash-latest": 0.2,
+    "gemini-flash-lite-latest": 0.1,
+    "gemini-pro-latest": 1.0,
+    "gemini-3-flash-preview": 0.33,
+    "gemini-3-pro-preview": 6.0,
+    "gemini-3-pro-image-preview": 6.0,
+    "gemini-3.1-pro-preview": 6.0,
+    "gemini-3.1-pro-preview-customtools": 6.0,
+    "gemini-3.1-flash-live-preview": 0.1,
+    "gemini-3.1-flash-lite": 0.1,
+    "gemini-3.1-flash-lite-preview": 0.1,
+    "gemini-3.1-flash-image-preview": 0.33,
+    "gemini-3.1-flash-tts-preview": 0.1,
+    "gemini-3.5-flash": 14.0,
+    "gemini-2.5-computer-use-preview": 0.2,
+    "gemini-2.5-computer-use-preview-10-2025": 0.2,
+    "gemini-robotics-er-1.5-preview": 0.2,
+    "gemini-robotics-er-1.6-preview": 0.2,
+    "deep-research-max-preview-04-2026": 1.0,
+    "deep-research-preview-04-2026": 1.0,
+    "deep-research-pro-preview-12-2025": 1.0,
+    "gemma-4-26b-a4b-it": 0.1,
+    "gemma-4-31b-it": 0.2,
+    "grok-code-fast-1": 0.33,
+    "raptor-mini": 0.33
+  }
+}
+2026-05-21T21:35:33.8908950Z   GITHUB_AW_OTEL_TRACE_ID: f51e9ceb794c366a9d162c22f3cf223c
+2026-05-21T21:35:33.8909317Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 4f4e84469b38fe22
+2026-05-21T21:35:33.8909620Z   GITHUB_AW_OTEL_JOB_START_MS: 1779399314735
+2026-05-21T21:35:33.8909884Z   AWF_REFLECT_ENABLED: 1
+2026-05-21T21:35:33.8910127Z   COPILOT_AGENT_RUNNER_TYPE: STANDALONE
+2026-05-21T21:35:33.8910450Z   COPILOT_DUMMY_BYOK: dummy-byok-key-for-offline-mode
+2026-05-21T21:35:33.8911410Z   COPILOT_GITHUB_TOKEN: ***
+2026-05-21T21:35:33.8911675Z   COPILOT_MODEL: claude-sonnet-4.5
+2026-05-21T21:35:33.8911995Z   GH_AW_MCP_CONFIG: /home/runner/.copilot/mcp-config.json
+2026-05-21T21:35:33.8912300Z   GH_AW_PHASE: agent
+2026-05-21T21:35:33.8912564Z   GH_AW_PROMPT: /tmp/gh-aw/aw-prompts/prompt.txt
+2026-05-21T21:35:33.8912968Z   GH_AW_SAFE_OUTPUTS: /home/runner/work/_temp/gh-aw/safeoutputs/outputs.jsonl
+2026-05-21T21:35:33.8913491Z   GH_AW_VERSION: v0.74.8
+2026-05-21T21:35:33.8913744Z   GITHUB_API_URL: https://api.github.com
+2026-05-21T21:35:33.8914008Z   GITHUB_AW: true
+2026-05-21T21:35:33.8914254Z   GITHUB_COPILOT_INTEGRATION_ID: agentic-workflows
+2026-05-21T21:35:33.8914549Z   GITHUB_HEAD_REF: 
+2026-05-21T21:35:33.8914879Z   GITHUB_MCP_SERVER_TOKEN: ***
+2026-05-21T21:35:33.8915126Z   GITHUB_REF_NAME: master
+2026-05-21T21:35:33.8915354Z   GITHUB_SERVER_URL: https://github.com
+2026-05-21T21:35:33.8915678Z   GITHUB_STEP_SUMMARY: /tmp/gh-aw/agent-step-summary.md
+2026-05-21T21:35:33.8916342Z   GITHUB_WORKSPACE: /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows
+2026-05-21T21:35:33.8916846Z   GIT_AUTHOR_EMAIL: github-actions[bot]@users.noreply.github.com
+2026-05-21T21:35:33.8917196Z   GIT_AUTHOR_NAME: github-actions[bot]
+2026-05-21T21:35:33.8917538Z   GIT_COMMITTER_EMAIL: github-actions[bot]@users.noreply.github.com
+2026-05-21T21:35:33.8917897Z   GIT_COMMITTER_NAME: github-actions[bot]
+2026-05-21T21:35:33.8918179Z   XDG_CONFIG_HOME: /home/runner
+2026-05-21T21:35:33.8918415Z ##[endgroup]
+2026-05-21T21:35:34.0640460Z [INFO] Auto-detected DNS servers from /run/systemd/resolve/resolv.conf: 168.63.129.16
+2026-05-21T21:35:34.0652095Z [WARN] ⚠️  Using --env-all: All host environment variables will be passed to container
+2026-05-21T21:35:34.0652969Z [WARN]    This may expose sensitive credentials if logs or configs are shared
+2026-05-21T21:35:34.0653946Z [WARN] ⚠️  Host access enabled with host.docker.internal in allowed domains
+2026-05-21T21:35:34.0654700Z [WARN]    Containers can access ANY service running on the host machine
+2026-05-21T21:35:34.0655379Z [WARN]    Only use this for trusted workloads (e.g., MCP gateways)
+2026-05-21T21:35:34.0656281Z [INFO] API proxy enabled: OpenAI=false, Anthropic=false, Copilot=true, Gemini=false
+2026-05-21T21:35:34.0668372Z [INFO] Allowed domains: api.business.githubcopilot.com, api.enterprise.githubcopilot.com, api.github.com, api.githubcopilot.com, api.individual.githubcopilot.com, api.snapcraft.io, archive.ubuntu.com, azure.archive.ubuntu.com, crl.geotrust.com, crl.globalsign.com, crl.identrust.com, crl.sectigo.com, crl.thawte.com, crl.usertrust.com, crl.verisign.com, crl3.digicert.com, crl4.digicert.com, crls.ssl.com, github.com, host.docker.internal, json-schema.org, json.schemastore.org, keyserver.ubuntu.com, ocsp.digicert.com, ocsp.geotrust.com, ocsp.globalsign.com, ocsp.identrust.com, ocsp.sectigo.com, ocsp.ssl.com, ocsp.thawte.com, ocsp.usertrust.com, ocsp.verisign.com, packagecloud.io, packages.cloud.google.com, packages.microsoft.com, ppa.launchpad.net, raw.githubusercontent.com, registry.npmjs.org, s.symcb.com, s.symcd.com, security.ubuntu.com, telemetry.enterprise.githubcopilot.com, ts-crl.ws.symantec.com, ts-ocsp.ws.symantec.com, www.googleapis.com
+2026-05-21T21:35:34.0673356Z [INFO] Setting up host-level firewall network and iptables rules...
+2026-05-21T21:35:34.1387069Z [SUCCESS] Created network 'awf-net' with bridge 'fw-bridge'
+2026-05-21T21:35:34.1392449Z [INFO] Setting up host-level iptables rules...
+2026-05-21T21:35:34.2231534Z [INFO] Host access enabled: allowing traffic to gateway IPs 172.30.0.1, 172.17.0.1 on ports 80, 443, 8080
+2026-05-21T21:35:34.2709717Z [SUCCESS] Host-level iptables rules configured successfully
+2026-05-21T21:35:34.2774893Z [INFO] Generating configuration files...
+2026-05-21T21:35:35.4959958Z [INFO] API proxy sidecar enabled - API keys will be held securely in sidecar container
+2026-05-21T21:35:35.4960981Z [INFO] API proxy will route through Squid to respect domain whitelisting
+2026-05-21T21:35:35.5110843Z [INFO] Starting containers...
+2026-05-21T21:35:35.7243056Z  Container awf-squid  Creating
+2026-05-21T21:35:35.7244058Z  Container awf-api-proxy  Creating
+2026-05-21T21:35:35.7476619Z  Container awf-api-proxy  Created
+2026-05-21T21:35:35.9056896Z  Container awf-squid  Created
+2026-05-21T21:35:35.9057506Z  Container awf-agent  Creating
+2026-05-21T21:35:35.9194695Z  Container awf-agent  Created
+2026-05-21T21:35:35.9195539Z  Container awf-iptables-init  Creating
+2026-05-21T21:35:35.9292794Z  Container awf-iptables-init  Created
+2026-05-21T21:35:35.9306499Z  Container awf-squid  Starting
+2026-05-21T21:35:35.9306975Z  Container awf-api-proxy  Starting
+2026-05-21T21:35:36.1225699Z  Container awf-api-proxy  Started
+2026-05-21T21:35:36.2093316Z  Container awf-squid  Started
+2026-05-21T21:35:36.2093713Z  Container awf-squid  Waiting
+2026-05-21T21:35:36.2093991Z  Container awf-api-proxy  Waiting
+2026-05-21T21:35:41.7111982Z  Container awf-squid  Healthy
+2026-05-21T21:35:47.2112204Z  Container awf-api-proxy  Healthy
+2026-05-21T21:35:47.2112789Z  Container awf-agent  Starting
+2026-05-21T21:35:47.3479804Z  Container awf-agent  Started
+2026-05-21T21:35:47.3480204Z  Container awf-agent  Waiting
+2026-05-21T21:35:52.8499048Z  Container awf-agent  Healthy
+2026-05-21T21:35:52.8499601Z  Container awf-iptables-init  Starting
+2026-05-21T21:35:52.9234303Z  Container awf-iptables-init  Started
+2026-05-21T21:35:52.9279111Z [SUCCESS] Containers started successfully
+2026-05-21T21:35:52.9282616Z [INFO] Executing agent command...
+2026-05-21T21:35:52.9458110Z [entrypoint] Agentic Workflow Firewall - Agent Container
+2026-05-21T21:35:52.9458562Z [entrypoint] ==================================
+2026-05-21T21:35:52.9458951Z [entrypoint] Adjusting awfuser UID:GID from 1000:1000 to 1001:1001
+2026-05-21T21:35:52.9459322Z [entrypoint] UID/GID adjustment complete
+2026-05-21T21:35:52.9459602Z [entrypoint] Configuring DNS...
+2026-05-21T21:35:52.9459943Z [entrypoint] DNS configured with Docker embedded DNS (127.0.0.11) only
+2026-05-21T21:35:52.9460437Z [entrypoint] Waiting for iptables initialization from init container...
+2026-05-21T21:35:53.5019539Z [entrypoint] iptables initialization complete
+2026-05-21T21:35:53.5036456Z [health-check] API Proxy Pre-flight Check
+2026-05-21T21:35:53.5037050Z [health-check] ==========================================
+2026-05-21T21:35:53.5042897Z [health-check] Checking GitHub Copilot API proxy configuration...
+2026-05-21T21:35:53.5043823Z [health-check] COPILOT_API_URL=http://172.30.0.30:10002
+2026-05-21T21:35:53.5044822Z [health-check] ✓ COPILOT_GITHUB_TOKEN is placeholder value (correct)
+2026-05-21T21:35:53.5045619Z [health-check] ✓ COPILOT_API_KEY is placeholder value (correct)
+2026-05-21T21:35:53.5046562Z [health-check] ✓ COPILOT_TOKEN is placeholder value (correct)
+2026-05-21T21:35:53.5047316Z [health-check] ✓ COPILOT_PROVIDER_API_KEY is placeholder value (correct)
+2026-05-21T21:35:53.5047958Z [health-check] COPILOT_PROVIDER_BASE_URL=http://172.30.0.30:10002 (offline+BYOK mode)
+2026-05-21T21:35:53.5048534Z [health-check] ✓ COPILOT_PROVIDER_BASE_URL matches COPILOT_API_URL
+2026-05-21T21:35:53.5048967Z [health-check] ✓ Copilot CLI offline+BYOK mode configured
+2026-05-21T21:35:53.5049454Z [health-check] Testing connectivity to GitHub Copilot API proxy at http://172.30.0.30:10002...
+2026-05-21T21:35:53.5641024Z [health-check] ✓ GitHub Copilot API proxy is reachable at http://172.30.0.30:10002
+2026-05-21T21:35:53.5641803Z [health-check] ==========================================
+2026-05-21T21:35:53.5642618Z [health-check] ✓ All API proxy health checks passed
+2026-05-21T21:35:53.5643301Z [health-check] ✓ Credential isolation verified
+2026-05-21T21:35:53.5643867Z [health-check] ✓ Connectivity established
+2026-05-21T21:35:53.5644349Z [health-check] ==========================================
+2026-05-21T21:35:53.5646952Z [entrypoint] Pre-seeding JVM build tool proxy configuration (squid-proxy:3128)...
+2026-05-21T21:35:53.5693935Z [entrypoint] ✓ Created Maven proxy config (/host/home/runner/.m2/settings.xml)
+2026-05-21T21:35:53.5735623Z [entrypoint] ✓ Created Gradle proxy config (/host/home/runner/.gradle/gradle.properties)
+2026-05-21T21:35:53.5757988Z [entrypoint] ✓ Set JAVA_TOOL_OPTIONS with proxy and nonProxyHosts flags
+2026-05-21T21:35:53.5758668Z [entrypoint] Proxy configuration:
+2026-05-21T21:35:53.5760340Z [entrypoint]   HTTP_PROXY=http://172.30.0.10:3128
+2026-05-21T21:35:53.5761192Z [entrypoint]   HTTPS_PROXY=http://172.30.0.10:3128
+2026-05-21T21:35:53.5761962Z [entrypoint] Network information:
+2026-05-21T21:35:53.5815054Z [entrypoint]   IP address: 172.30.0.20 
+2026-05-21T21:35:53.5826665Z [entrypoint]   Hostname: ba0b1186b021
+2026-05-21T21:35:53.8446519Z [entrypoint] ==================================
+2026-05-21T21:35:53.8447275Z [entrypoint] Chroot mode enabled - dropping CAP_SYS_CHROOT and CAP_SYS_ADMIN
+2026-05-21T21:35:53.8483200Z [entrypoint] Switching to awfuser (UID: 1001, GID: 1001)
+2026-05-21T21:35:53.8488905Z [entrypoint] Executing command: /bin/bash -c /bin/bash -c 'export PATH="${RUNNER_TEMP}/gh-aw/mcp-cli/bin:$PATH" && export PATH="$(find /opt/hostedtoolcache /home/runner/work/_tool -maxdepth 5 -type d -name bin 2>/dev/null | tr '\''\n'\'' '\'':'\'')$PATH"; [ -n "$GOROOT" ] && export PATH="$GOROOT/bin:$PATH" || true && GH_AW_NODE_EXEC="${GH_AW_NODE_BIN:-}"; if [ -z "$GH_AW_NODE_EXEC" ] || [ ! -x "$GH_AW_NODE_EXEC" ]; then GH_AW_NODE_EXEC="$(command -v node 2>/dev/null || true)"; fi; if [ -z "$GH_AW_NODE_EXEC" ]; then echo "node runtime missing on this runner — check runtimes.node in workflow YAML" >&2; exit 127; fi; "$GH_AW_NODE_EXEC" ${RUNNER_TEMP}/gh-aw/actions/copilot_harness.cjs /usr/local/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --allow-all-paths --add-dir "${GITHUB_WORKSPACE}" --prompt-file /tmp/gh-aw/aw-prompts/prompt.txt'
+2026-05-21T21:35:53.8493876Z 
+2026-05-21T21:35:53.8494121Z [entrypoint] Chroot mode: running command inside host filesystem (/host)
+2026-05-21T21:35:53.9445119Z [entrypoint] Mounted procfs at /host/proc (nosuid,nodev,noexec,hidepid=2)
+2026-05-21T21:35:53.9752273Z [entrypoint] One-shot token library copied to chroot at /tmp/awf-lib/one-shot-token.so
+2026-05-21T21:35:53.9789263Z [entrypoint] DNS configuration created in chroot (/host/etc/resolv.conf)
+2026-05-21T21:35:53.9910987Z [entrypoint] Chroot working directory: /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows
+2026-05-21T21:35:53.9940100Z [entrypoint] Running as host user: runner (UID: 1001)
+2026-05-21T21:35:53.9940653Z [entrypoint] Using host PATH for chroot
+2026-05-21T21:35:53.9954805Z [entrypoint] Adding JAVA_HOME/bin to PATH: /usr/lib/jvm/temurin-17-jdk-amd64/bin
+2026-05-21T21:35:54.0255582Z [entrypoint] DNS configuration will be removed on exit
+2026-05-21T21:35:54.0274948Z [entrypoint] Transferred /host/tmp/gh-aw ownership to chroot user (1001:1001)
+2026-05-21T21:35:54.0354236Z [entrypoint][WARN] Failed to transfer /host/home/runner/work/_temp/gh-aw/safeoutputs ownership to chroot user
+2026-05-21T21:35:54.6685743Z [copilot-harness] 2026-05-21T21:35:54.607Z starting: command=/usr/local/bin/copilot maxRetries=3 initialDelayMs=5000 backoffMultiplier=2 maxDelayMs=60000 nodeVersion=v22.22.3 platform=linux
+2026-05-21T21:35:54.6703995Z [copilot-harness] 2026-05-21T21:35:54.670Z pre-flight: command is accessible and executable: /usr/local/bin/copilot
+2026-05-21T21:35:54.6707209Z [copilot-harness] 2026-05-21T21:35:54.670Z resolved --prompt-file: path=/tmp/gh-aw/aw-prompts/prompt.txt size=9792B
+2026-05-21T21:35:54.6710321Z [copilot-harness] 2026-05-21T21:35:54.670Z awf-reflect: fetching http://api-proxy:10000/reflect (timeout=5000ms)
+2026-05-21T21:35:54.7222287Z [copilot-harness] 2026-05-21T21:35:54.721Z awf-reflect: saved 3684B to /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-05-21T21:35:54.7224209Z [copilot-harness] 2026-05-21T21:35:54.722Z attempt 1: spawning: /usr/local/bin/copilot --add-dir /tmp/gh-aw/ --log-level all --log-dir /tmp/gh-aw/sandbox/agent/logs/ --disable-builtin-mcps --no-ask-user --allow-all-tools --allow-all-paths --add-dir /home/runner/work/GitHub-Agentic-Workf
+2026-05-21T21:35:54.7252644Z [copilot-harness] 2026-05-21T21:35:54.724Z attempt 1: process started (pid=175)
+2026-05-21T21:35:55.0538618Z [entrypoint] Unsetting sensitive tokens from parent shell environment...
+2026-05-21T21:35:55.0539498Z [entrypoint] Unset COPILOT_GITHUB_TOKEN from /proc/1/environ
+2026-05-21T21:36:02.6337367Z I'll create an upbeat daily status report for the repository. Let me start by gathering information about recent activity and studying the repository.
+2026-05-21T21:36:02.6338668Z 
+2026-05-21T21:36:02.7102113Z ● List directory .
+2026-05-21T21:36:02.7102923Z   └ 4 files found
+2026-05-21T21:36:02.7103124Z 
+2026-05-21T21:36:03.8341736Z ● get_me (MCP: github)
+2026-05-21T21:36:03.8342629Z   └ [{"content":[{"text":"failed to get user: GET https://api.github.com/use...
+2026-05-21T21:36:03.8343126Z 
+2026-05-21T21:36:04.7303452Z ● list_pull_requests (MCP: github) · owner: "barea1", repo: "GitHub-Agentic-Workflows", state: "all…
+2026-05-21T21:36:04.7304586Z   └ [{"base":{"ref":"master","repo":{"full_name":"barea1/GitHub-Agentic-Work...
+2026-05-21T21:36:04.7304878Z 
+2026-05-21T21:36:04.7371466Z ● list_releases (MCP: github) · owner: "barea1", repo: "GitHub-Agentic-Workflows", perPage: 5
+2026-05-21T21:36:04.7372294Z   └ []
+2026-05-21T21:36:04.7372457Z 
+2026-05-21T21:36:04.7563510Z ● list_issues (MCP: github) · owner: "barea1", repo: "GitHub-Agentic-Workflows", perPage: 20
+2026-05-21T21:36:04.7564716Z   └ [{"body":"### Workflow Failure\n\n**Workflow:** [Repo Status](https://gi...
+2026-05-21T21:36:04.7565206Z 
+2026-05-21T21:36:04.7655829Z ● list_commits (MCP: github) · owner: "barea1", repo: "GitHub-Agentic-Workflows", perPage: 20, sinc…
+2026-05-21T21:36:04.7656927Z   └ [{"author":{"avatar_url":"https://avatars.githubusercontent.com/u/125695...
+2026-05-21T21:36:04.7657252Z 
+2026-05-21T21:36:10.3332130Z Let me explore the repository structure and gather more details:
+2026-05-21T21:36:10.3332610Z 
+2026-05-21T21:36:10.3684579Z ● Search (glob)
+2026-05-21T21:36:10.3685036Z   │ "**/*.md"
+2026-05-21T21:36:10.3685373Z   └ 1 file found
+2026-05-21T21:36:10.3685557Z 
+2026-05-21T21:36:10.3763672Z ● List directory .github
+2026-05-21T21:36:10.3764210Z   └ 1 file found
+2026-05-21T21:36:10.3764417Z 
+2026-05-21T21:36:10.6309589Z ● list_branches (MCP: github) · owner: "barea1", repo: "GitHub-Agentic-Workflows"
+2026-05-21T21:36:10.6310334Z   └ [{"content":[{"text":"[{\"name\":\"add-workflow-repo-status-5250\",\"sha...
+2026-05-21T21:36:10.6310686Z 
+2026-05-21T21:36:10.8733381Z ● Get recent commit activity with stats (shell)
+2026-05-21T21:36:10.8733967Z   │ cd /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows &&
+2026-05-21T21:36:10.8734564Z   │ git log --since="7 days ago" --pretty=format:"%h - %an, %ar : %s" --stat |
+2026-05-21T21:36:10.8734986Z   │ head -50
+2026-05-21T21:36:10.8735194Z   └ 7 lines...
+2026-05-21T21:36:10.8735316Z 
+2026-05-21T21:36:14.6656608Z ● Read daily-repo-status.md
+2026-05-21T21:36:14.6661823Z   │ .github/workflows/daily-repo-status.md
+2026-05-21T21:36:14.6668243Z   └ 58 lines read
+2026-05-21T21:36:14.6669134Z 
+2026-05-21T21:36:15.1870411Z ● get_file_contents (MCP: github) · / · owner: "barea1", repo: "GitHub-Agentic-Workflows", path: "/"
+2026-05-21T21:36:15.1871202Z   └ [{"download_url":"https://raw.githubusercontent.com/barea1/GitHub-Agenti...
+2026-05-21T21:36:15.1871537Z 
+2026-05-21T21:36:26.9980584Z Now let me check if there's a README or more information about the repository:
+2026-05-21T21:36:26.9981181Z 
+2026-05-21T21:36:27.0129363Z ● List directory enlaces
+2026-05-21T21:36:27.0129731Z   └ 1 file found
+2026-05-21T21:36:27.0129956Z 
+2026-05-21T21:36:27.2871820Z ● search_issues (MCP: github) · repo:barea1/GitHub-Agentic-Workflows is:closed · owner: "barea1", p…
+2026-05-21T21:36:27.2873307Z   └ [{"content":[{"text":"{\"total_count\":0,\"incomplete_results\":false}",...
+2026-05-21T21:36:27.2873923Z 
+2026-05-21T21:36:27.5133589Z ● Search for README files (shell)
+2026-05-21T21:36:27.5134399Z   │ cd /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows &&
+2026-05-21T21:36:27.5135701Z   │ find . -name "README*" -o -name "readme*" | head -10
+2026-05-21T21:36:27.5136379Z   └ 1 line...
+2026-05-21T21:36:27.5136543Z 
+2026-05-21T21:36:49.4192910Z Perfect! Now I have enough information to create a comprehensive daily status report. Let me create an upbeat GitHub issue with the repository status:
+2026-05-21T21:36:49.4194308Z 
+2026-05-21T21:36:52.4473010Z ● Create upbeat daily status report issue (shell)
+2026-05-21T21:36:52.4473857Z   │ printf '{"title":"Daily Repo Status - May 21, 2026 🚀","body":"# Daily
+2026-05-21T21:36:52.4474645Z   │ Repository Status Report 🌟\n**Date:** May 21, 2026\n\n---\n\n## 📊
+2026-05-21T21:36:52.4475434Z   │ Activity Summary\n\nGreat progress today! Your repository is taking shape
+2026-05-21T21:36:52.4476775Z   │ with its first agentic workflow implementation.\n\n### Recent Highlights
+2026-05-21T21:36:52.4477643Z   │ ✨\n\n- 🎉 **Repository Initialized** - Fresh start with solid …
+2026-05-21T21:36:52.4478264Z   └ 53 lines...
+2026-05-21T21:36:52.4478443Z 
+2026-05-21T21:37:03.0960413Z I need to fix the JSON payload. Let me try again with proper formatting:
+2026-05-21T21:37:03.0960941Z 
+2026-05-21T21:37:05.9213411Z ● Create JSON payload file for status report (shell)
+2026-05-21T21:37:05.9214202Z   │ cat > /tmp/gh-aw/agent/status_report.json << 'EOF'
+2026-05-21T21:37:05.9214677Z   │ {
+2026-05-21T21:37:05.9215170Z   │ "title": "Daily Repo Status - May 21, 2026 🚀",
+2026-05-21T21:37:05.9215861Z   │ "body": "# Daily Repository Status Report 🌟\n**Date:** May 21,
+2026-05-21T21:37:05.9216920Z   │ 2026\n\n---\n\n## 📊 Activity Summary\n\nGreat progress today! Your …
+2026-05-21T21:37:05.9217468Z   └ 48 lines...
+2026-05-21T21:37:05.9217621Z 
+2026-05-21T21:37:10.2859037Z ● Submit status report issue via file redirection (shell)
+2026-05-21T21:37:10.2859655Z   │ safeoutputs create_issue . < /tmp/gh-aw/agent/status_report.json
+2026-05-21T21:37:10.2860053Z   └ 14 lines...
+2026-05-21T21:37:10.2860170Z 
+2026-05-21T21:37:13.5331134Z Perfect! ✨ I've successfully created an upbeat daily status report for the GitHub-Agentic-Workflows repository. 
+2026-05-21T21:37:13.5331660Z 
+2026-05-21T21:37:13.5331759Z The report includes:
+2026-05-21T21:37:14.0494271Z - 📊 **Activity Summary** highlighting the repository initialization and first merged PR
+2026-05-21T21:37:14.3343551Z - 🔥 **Recent Activity** covering commits, PRs, and the open authorization issue
+2026-05-21T21:37:14.5654586Z - 🎯 **Project Status** noting what's working well and areas for attention
+2026-05-21T21:37:14.8171340Z - 💡 **Recommendations** for documentation and workflow expansion
+2026-05-21T21:37:15.0292751Z - 📋 **Next Steps** with actionable items for maintainers
+2026-05-21T21:37:15.0293111Z 
+2026-05-21T21:37:16.2205140Z The issue has been created with an encouraging, positive tone and appropriate emojis to keep it engaging while providing valuable insights about the repository's current state and future opportunities! 🚀
+2026-05-21T21:37:16.2206237Z 
+2026-05-21T21:37:16.2616667Z 
+2026-05-21T21:37:16.2617841Z Changes   +0 -0
+2026-05-21T21:37:16.2618629Z Duration  1m 20s
+2026-05-21T21:37:16.2619284Z Tokens    ↑ 235.1k • ↓ 3.8k • 199.7k (cached)
+2026-05-21T21:37:16.3014066Z [copilot-harness] 2026-05-21T21:37:16.300Z attempt 1: process exit event exitCode=0
+2026-05-21T21:37:16.3015332Z [copilot-harness] 2026-05-21T21:37:16.300Z attempt 1: process closed exitCode=0 duration=1m 21s stdout=4249B stderr=88B hasOutput=true
+2026-05-21T21:37:16.3016743Z [copilot-harness] 2026-05-21T21:37:16.300Z success on attempt 1: totalDuration=1m 21s
+2026-05-21T21:37:16.3017896Z [copilot-harness] 2026-05-21T21:37:16.301Z awf-reflect: fetching http://api-proxy:10000/reflect (timeout=5000ms)
+2026-05-21T21:37:16.3057618Z [copilot-harness] 2026-05-21T21:37:16.305Z awf-reflect: saved 3696B to /tmp/gh-aw/sandbox/firewall/awf-reflect.json
+2026-05-21T21:37:16.3058752Z [copilot-harness] 2026-05-21T21:37:16.305Z done: exitCode=0 totalDuration=1m 21s
+2026-05-21T21:37:16.5776420Z [INFO] Stopping containers...
+2026-05-21T21:37:16.6627941Z  Container awf-iptables-init  Stopping
+2026-05-21T21:37:16.6629145Z  Container awf-iptables-init  Stopped
+2026-05-21T21:37:16.6629550Z  Container awf-iptables-init  Removing
+2026-05-21T21:37:16.6675899Z  Container awf-iptables-init  Removed
+2026-05-21T21:37:16.6681553Z  Container awf-agent  Stopping
+2026-05-21T21:37:16.6685642Z  Container awf-agent  Stopped
+2026-05-21T21:37:16.6687252Z  Container awf-agent  Removing
+2026-05-21T21:37:16.6765820Z  Container awf-agent  Removed
+2026-05-21T21:37:16.6766591Z  Container awf-api-proxy  Stopping
+2026-05-21T21:37:16.6767007Z  Container awf-squid  Stopping
+2026-05-21T21:37:16.8164417Z  Container awf-api-proxy  Stopped
+2026-05-21T21:37:16.8164991Z  Container awf-api-proxy  Removing
+2026-05-21T21:37:16.8210811Z  Container awf-api-proxy  Removed
+2026-05-21T21:37:17.7962612Z  Container awf-squid  Stopped
+2026-05-21T21:37:17.7963163Z  Container awf-squid  Removing
+2026-05-21T21:37:17.8017419Z  Container awf-squid  Removed
+2026-05-21T21:37:17.8055452Z [SUCCESS] Containers stopped successfully
+2026-05-21T21:37:17.8564049Z [INFO] Agent session state preserved at: /tmp/awf-agent-session-state-1779399333957
+2026-05-21T21:37:17.8592722Z [INFO] API proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/api-proxy-logs
+2026-05-21T21:37:17.8616836Z [INFO] CLI proxy logs available at: /tmp/gh-aw/sandbox/firewall/logs/cli-proxy-logs
+2026-05-21T21:37:17.8641374Z [INFO] Squid logs available at: /tmp/gh-aw/sandbox/firewall/logs
+2026-05-21T21:37:17.8665124Z [INFO] Audit artifacts available at: /tmp/gh-aw/sandbox/firewall/audit
+2026-05-21T21:37:17.8699093Z [SUCCESS] Command completed successfully
+2026-05-21T21:37:17.8760326Z Process exiting with code: 0

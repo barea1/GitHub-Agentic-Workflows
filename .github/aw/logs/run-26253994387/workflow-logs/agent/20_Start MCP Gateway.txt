@@ -1,0 +1,396 @@
+﻿2026-05-21T21:25:48.8675780Z ##[group]Run set -eo pipefail
+2026-05-21T21:25:48.8676169Z [36;1mset -eo pipefail[0m
+2026-05-21T21:25:48.8676451Z [36;1mmkdir -p "${RUNNER_TEMP}/gh-aw/mcp-config"[0m
+2026-05-21T21:25:48.8676725Z [36;1m[0m
+2026-05-21T21:25:48.8677032Z [36;1m# Export gateway environment variables for MCP config and gateway script[0m
+2026-05-21T21:25:48.8677422Z [36;1mexport MCP_GATEWAY_PORT="8080"[0m
+2026-05-21T21:25:48.8677738Z [36;1mexport MCP_GATEWAY_DOMAIN="host.docker.internal"[0m
+2026-05-21T21:25:48.8678065Z [36;1mexport MCP_GATEWAY_HOST_DOMAIN="localhost"[0m
+2026-05-21T21:25:48.8678439Z [36;1mMCP_GATEWAY_API_KEY=$(openssl rand -base64 45 | tr -d '/+=')[0m
+2026-05-21T21:25:48.8678796Z [36;1mecho "::add-mask::${MCP_GATEWAY_API_KEY}"[0m
+2026-05-21T21:25:48.8679070Z [36;1mexport MCP_GATEWAY_API_KEY[0m
+2026-05-21T21:25:48.8679390Z [36;1mexport MCP_GATEWAY_PAYLOAD_DIR="/tmp/gh-aw/mcp-payloads"[0m
+2026-05-21T21:25:48.8679730Z [36;1mmkdir -p "${MCP_GATEWAY_PAYLOAD_DIR}"[0m
+2026-05-21T21:25:48.8680040Z [36;1mexport MCP_GATEWAY_PAYLOAD_SIZE_THRESHOLD="524288"[0m
+2026-05-21T21:25:48.8680369Z [36;1mexport DEBUG="*"[0m
+2026-05-21T21:25:48.8680559Z [36;1m[0m
+2026-05-21T21:25:48.8680743Z [36;1mexport GH_AW_ENGINE="copilot"[0m
+2026-05-21T21:25:48.8681029Z [36;1mMCP_GATEWAY_UID=$(id -u 2>/dev/null || echo '0')[0m
+2026-05-21T21:25:48.8681349Z [36;1mMCP_GATEWAY_GID=$(id -g 2>/dev/null || echo '0')[0m
+2026-05-21T21:25:48.8681978Z [36;1mcase "${DOCKER_HOST:-}" in[0m
+2026-05-21T21:25:48.8682487Z [36;1m  unix://* ) DOCKER_SOCK_PATH="${DOCKER_HOST#unix://}" ;;[0m
+2026-05-21T21:25:48.8682815Z [36;1m  /* ) DOCKER_SOCK_PATH="$DOCKER_HOST" ;;[0m
+2026-05-21T21:25:48.8683121Z [36;1m  * ) DOCKER_SOCK_PATH=/var/run/docker.sock ;;[0m
+2026-05-21T21:25:48.8683386Z [36;1mesac[0m
+2026-05-21T21:25:48.8683688Z [36;1mDOCKER_SOCK_GID=$(stat -c '%g' "$DOCKER_SOCK_PATH" 2>/dev/null || echo '0')[0m
+2026-05-21T21:25:48.8688040Z [36;1mexport MCP_GATEWAY_DOCKER_COMMAND='docker run -i --rm --network host --add-host host.docker.internal:127.0.0.1 --user '"${MCP_GATEWAY_UID}"':'"${MCP_GATEWAY_GID}"' --group-add '"${DOCKER_SOCK_GID}"' -v '"${DOCKER_SOCK_PATH}"':/var/run/docker.sock -e MCP_GATEWAY_PORT -e MCP_GATEWAY_DOMAIN -e MCP_GATEWAY_API_KEY -e MCP_GATEWAY_PAYLOAD_DIR -e MCP_GATEWAY_PAYLOAD_SIZE_THRESHOLD -e DOCKER_HOST=unix:///var/run/docker.sock -e DEBUG -e MCP_GATEWAY_LOG_DIR -e GH_AW_MCP_LOG_DIR -e GH_AW_SAFE_OUTPUTS -e GH_AW_SAFE_OUTPUTS_CONFIG_PATH -e GH_AW_SAFE_OUTPUTS_TOOLS_PATH -e GH_AW_ASSETS_BRANCH -e GH_AW_ASSETS_MAX_SIZE_KB -e GH_AW_ASSETS_ALLOWED_EXTS -e DEFAULT_BRANCH -e GITHUB_MCP_SERVER_TOKEN -e GITHUB_MCP_GUARD_MIN_INTEGRITY -e GITHUB_MCP_GUARD_REPOS -e GITHUB_REPOSITORY -e GITHUB_SERVER_URL -e GITHUB_SHA -e GITHUB_WORKSPACE -e GITHUB_TOKEN -e GITHUB_RUN_ID -e GITHUB_RUN_NUMBER -e GITHUB_RUN_ATTEMPT -e GITHUB_JOB -e GITHUB_ACTION -e GITHUB_EVENT_NAME -e GITHUB_EVENT_PATH -e GITHUB_ACTOR -e GITHUB_ACTOR_ID -e GITHUB_TRIGGERING_ACTOR -e GITHUB_WORKFLOW -e GITHUB_WORKFLOW_REF -e GITHUB_WORKFLOW_SHA -e GITHUB_REF -e GITHUB_REF_NAME -e GITHUB_REF_TYPE -e GITHUB_HEAD_REF -e GITHUB_BASE_REF -e GH_AW_SAFE_OUTPUTS_PORT -e GH_AW_SAFE_OUTPUTS_API_KEY -v /tmp/gh-aw/mcp-payloads:/tmp/gh-aw/mcp-payloads:rw -v /opt:/opt:ro -v /tmp:/tmp:rw -v '"${GITHUB_WORKSPACE}"':'"${GITHUB_WORKSPACE}"':rw ghcr.io/github/gh-aw-mcpg:v0.3.9'[0m
+2026-05-21T21:25:48.8692566Z [36;1m[0m
+2026-05-21T21:25:48.8692902Z [36;1mmkdir -p /home/runner/.copilot[0m
+2026-05-21T21:25:48.8693267Z [36;1mGH_AW_NODE=$(which node 2>/dev/null || command -v node 2>/dev/null || echo node)[0m
+2026-05-21T21:25:48.8693866Z [36;1mcat << GH_AW_MCP_CONFIG_d64e8220b9acd432_EOF | "$GH_AW_NODE" "${RUNNER_TEMP}/gh-aw/actions/start_mcp_gateway.cjs"[0m
+2026-05-21T21:25:48.8694324Z [36;1m{[0m
+2026-05-21T21:25:48.8694505Z [36;1m  "mcpServers": {[0m
+2026-05-21T21:25:48.8694715Z [36;1m    "github": {[0m
+2026-05-21T21:25:48.8694923Z [36;1m      "type": "stdio",[0m
+2026-05-21T21:25:48.8695216Z [36;1m      "container": "ghcr.io/github/github-mcp-server:v1.0.4",[0m
+2026-05-21T21:25:48.8695628Z [36;1m      "env": {[0m
+2026-05-21T21:25:48.8695869Z [36;1m        "GITHUB_HOST": "\${GITHUB_SERVER_URL}",[0m
+2026-05-21T21:25:48.8696237Z [36;1m        "GITHUB_PERSONAL_ACCESS_TOKEN": "\${GITHUB_MCP_SERVER_TOKEN}",[0m
+2026-05-21T21:25:48.8696583Z [36;1m        "GITHUB_READ_ONLY": "1",[0m
+2026-05-21T21:25:48.8696900Z [36;1m        "GITHUB_TOOLSETS": "context,repos,issues,pull_requests"[0m
+2026-05-21T21:25:48.8697213Z [36;1m      },[0m
+2026-05-21T21:25:48.8697399Z [36;1m      "guard-policies": {[0m
+2026-05-21T21:25:48.8697646Z [36;1m        "allow-only": {[0m
+2026-05-21T21:25:48.8697888Z [36;1m          "approval-labels": [],[0m
+2026-05-21T21:25:48.8698138Z [36;1m          "blocked-users": [],[0m
+2026-05-21T21:25:48.8698393Z [36;1m          "min-integrity": "none",[0m
+2026-05-21T21:25:48.8698628Z [36;1m          "repos": "all",[0m
+2026-05-21T21:25:48.8698899Z [36;1m          "trusted-users": [][0m
+2026-05-21T21:25:48.8699124Z [36;1m        }[0m
+2026-05-21T21:25:48.8699305Z [36;1m      }[0m
+2026-05-21T21:25:48.8699474Z [36;1m    },[0m
+2026-05-21T21:25:48.8699660Z [36;1m    "safeoutputs": {[0m
+2026-05-21T21:25:48.8699883Z [36;1m      "type": "http",[0m
+2026-05-21T21:25:48.8700215Z [36;1m      "url": "http://host.docker.internal:$GH_AW_SAFE_OUTPUTS_PORT",[0m
+2026-05-21T21:25:48.8700547Z [36;1m      "headers": {[0m
+2026-05-21T21:25:48.8700816Z [36;1m        "Authorization": "\${GH_AW_SAFE_OUTPUTS_API_KEY}"[0m
+2026-05-21T21:25:48.8701107Z [36;1m      },[0m
+2026-05-21T21:25:48.8701293Z [36;1m      "guard-policies": {[0m
+2026-05-21T21:25:48.8701748Z [36;1m        "write-sink": {[0m
+2026-05-21T21:25:48.8701982Z [36;1m          "accept": [[0m
+2026-05-21T21:25:48.8702205Z [36;1m            "*"[0m
+2026-05-21T21:25:48.8702399Z [36;1m          ][0m
+2026-05-21T21:25:48.8702589Z [36;1m        }[0m
+2026-05-21T21:25:48.8702771Z [36;1m      }[0m
+2026-05-21T21:25:48.8702944Z [36;1m    }[0m
+2026-05-21T21:25:48.8703115Z [36;1m  },[0m
+2026-05-21T21:25:48.8703288Z [36;1m  "gateway": {[0m
+2026-05-21T21:25:48.8703506Z [36;1m    "port": $MCP_GATEWAY_PORT,[0m
+2026-05-21T21:25:48.8703771Z [36;1m    "domain": "${MCP_GATEWAY_DOMAIN}",[0m
+2026-05-21T21:25:48.8704046Z [36;1m    "apiKey": "${MCP_GATEWAY_API_KEY}",[0m
+2026-05-21T21:25:48.8704338Z [36;1m    "payloadDir": "${MCP_GATEWAY_PAYLOAD_DIR}"[0m
+2026-05-21T21:25:48.8704602Z [36;1m  }[0m
+2026-05-21T21:25:48.8704761Z [36;1m}[0m
+2026-05-21T21:25:48.8704951Z [36;1mGH_AW_MCP_CONFIG_d64e8220b9acd432_EOF[0m
+2026-05-21T21:25:48.8724505Z shell: /usr/bin/bash -e {0}
+2026-05-21T21:25:48.8724756Z env:
+2026-05-21T21:25:48.8724941Z   DEFAULT_BRANCH: master
+2026-05-21T21:25:48.8725156Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-05-21T21:25:48.8725374Z   GH_AW_ASSETS_BRANCH: 
+2026-05-21T21:25:48.8725573Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-05-21T21:25:48.8725837Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-05-21T21:25:48.8726144Z   GH_AW_WORKFLOW_ID_SANITIZED: dailyrepostatus
+2026-05-21T21:25:48.8740269Z   GH_AW_MODEL_MULTIPLIERS: {
+  "version": "1",
+  "description": "Effective Tokens (ET) computation data per the gh-aw Effective Tokens Specification v0.2.0. Token class weights are applied first to normalize across token classes, then the per-model multiplier scales the result relative to the reference model. Model lifecycle: deprecated models must carry a deprecated marker for one minor version before removal (R-REG-009).",
+  "reference_model": "claude-sonnet-4.5",
+  "token_class_weights": {
+    "input": 1.0,
+    "cached_input": 0.1,
+    "output": 4.0,
+    "reasoning": 4.0,
+    "cache_write": 1.0
+  },
+  "multipliers": {
+    "claude-haiku-4-5": 0.33,
+    "claude-haiku-4.5": 0.33,
+    "claude-haiku-4-5-20251001": 0.33,
+    "claude-3-5-haiku": 0.1,
+    "claude-3-haiku": 0.1,
+    "claude-sonnet-4": 1.0,
+    "claude-sonnet-4-20250514": 1.0,
+    "claude-sonnet-4-5": 6.0,
+    "claude-sonnet-4.5": 6.0,
+    "claude-sonnet-4-5-20250929": 6.0,
+    "claude-sonnet-4-6": 9.0,
+    "claude-sonnet-4.6": 9.0,
+    "claude-3-5-sonnet": 1.0,
+    "claude-3-7-sonnet": 1.0,
+    "claude-3-sonnet": 1.0,
+    "claude-opus-4": 5.0,
+    "claude-opus-4-20250514": 5.0,
+    "claude-opus-4-1": 5.0,
+    "claude-opus-4-1-20250805": 5.0,
+    "claude-opus-4-5": 15.0,
+    "claude-opus-4-5-20251101": 15.0,
+    "claude-opus-4-6": 27.0,
+    "claude-opus-4-7": 27.0,
+    "claude-opus-4.5": 15.0,
+    "claude-opus-4.6": 27.0,
+    "claude-3-5-opus": 5.0,
+    "claude-3-opus": 5.0,
+    "gpt-4o": 0.33,
+    "gpt-4o-mini": 0.33,
+    "gpt-4.1": 1.0,
+    "gpt-4.1-2025-04-14": 1.0,
+    "gpt-41-copilot": 1.0,
+    "gpt-4.1-mini": 0.1,
+    "gpt-4.1-nano": 0.05,
+    "gpt-4-turbo": 1.0,
+    "gpt-4": 1.0,
+    "gpt-5": 1.0,
+    "gpt-5-2025-08-07": 1.0,
+    "gpt-5-search-api": 1.0,
+    "gpt-5-search-api-2025-10-14": 1.0,
+    "gpt-5-chat-latest": 1.0,
+    "gpt-5-mini": 0.33,
+    "gpt-5-mini-2025-08-07": 0.33,
+    "gpt-5-nano": 0.05,
+    "gpt-5-nano-2025-08-07": 0.05,
+    "gpt-5-pro": 2.0,
+    "gpt-5-pro-2025-10-06": 2.0,
+    "gpt-5.1": 3.0,
+    "gpt-5.1-2025-11-13": 3.0,
+    "gpt-5.1-chat-latest": 3.0,
+    "gpt-5-codex": 1.0,
+    "gpt-5.1-codex": 3.0,
+    "gpt-5.1-codex-mini": 0.33,
+    "gpt-5.1-codex-max": 3.0,
+    "gpt-5.1-codex-max-customsummarizer": 3.0,
+    "gpt-5.2": 3.0,
+    "gpt-5.2-2025-12-11": 3.0,
+    "gpt-5.2-chat-latest": 3.0,
+    "gpt-5.2-codex": 3.0,
+    "gpt-5.2-pro": 2.0,
+    "gpt-5.2-pro-2025-12-11": 2.0,
+    "gpt-5.3-chat-latest": 3.0,
+    "gpt-5.3-codex": 6.0,
+    "gpt-5.3-codex-api-preview": 6.0,
+    "gpt-5.4": 6.0,
+    "gpt-5.4-2026-03-05": 6.0,
+    "gpt-5.4-mini": 6.0,
+    "gpt-5.4-mini-2026-03-17": 6.0,
+    "gpt-5.4-nano": 0.05,
+    "gpt-5.4-nano-2026-03-17": 0.05,
+    "gpt-5.4-pro": 2.0,
+    "gpt-5.4-pro-2026-03-05": 2.0,
+    "gpt-5.5": 7.5,
+    "gpt-5.5-2026-04-23": 7.5,
+    "gpt-5.5-pro": 2.0,
+    "gpt-5.5-pro-2026-04-23": 2.0,
+    "o1": 3.0,
+    "o1-2024-12-17": 3.0,
+    "o1-mini": 0.5,
+    "o1-pro": 10.0,
+    "o1-pro-2025-03-19": 10.0,
+    "o3": 3.0,
+    "o3-2025-04-16": 3.0,
+    "o3-mini": 0.5,
+    "o3-mini-2025-01-31": 0.5,
+    "o3-pro": 10.0,
+    "o3-pro-2025-06-10": 10.0,
+    "o3-deep-research": 3.0,
+    "o3-deep-research-2025-06-26": 3.0,
+    "o4-mini": 0.5,
+    "o4-mini-2025-04-16": 0.5,
+    "o4-mini-deep-research": 0.5,
+    "o4-mini-deep-research-2025-06-26": 0.5,
+    "gemini-2.5-pro": 1.0,
+    "gemini-2.5-pro-preview-tts": 1.0,
+    "gemini-2.5-flash": 0.2,
+    "gemini-2.5-flash-native-audio-latest": 0.2,
+    "gemini-2.5-flash-native-audio-preview-09-2025": 0.2,
+    "gemini-2.5-flash-native-audio-preview-12-2025": 0.2,
+    "gemini-2.5-flash-preview-tts": 0.2,
+    "gemini-2.5-flash-image": 0.2,
+    "gemini-2.5-flash-lite": 0.1,
+    "gemini-2.0-flash": 0.1,
+    "gemini-2.0-flash-001": 0.1,
+    "gemini-2.0-flash-lite": 0.1,
+    "gemini-2.0-flash-lite-001": 0.1,
+    "gemini-1.5-pro": 1.0,
+    "gemini-1.5-flash": 0.1,
+    "gemini-flash-latest": 0.2,
+    "gemini-flash-lite-latest": 0.1,
+    "gemini-pro-latest": 1.0,
+    "gemini-3-flash-preview": 0.33,
+    "gemini-3-pro-preview": 6.0,
+    "gemini-3-pro-image-preview": 6.0,
+    "gemini-3.1-pro-preview": 6.0,
+    "gemini-3.1-pro-preview-customtools": 6.0,
+    "gemini-3.1-flash-live-preview": 0.1,
+    "gemini-3.1-flash-lite": 0.1,
+    "gemini-3.1-flash-lite-preview": 0.1,
+    "gemini-3.1-flash-image-preview": 0.33,
+    "gemini-3.1-flash-tts-preview": 0.1,
+    "gemini-3.5-flash": 14.0,
+    "gemini-2.5-computer-use-preview": 0.2,
+    "gemini-2.5-computer-use-preview-10-2025": 0.2,
+    "gemini-robotics-er-1.5-preview": 0.2,
+    "gemini-robotics-er-1.6-preview": 0.2,
+    "deep-research-max-preview-04-2026": 1.0,
+    "deep-research-preview-04-2026": 1.0,
+    "deep-research-pro-preview-12-2025": 1.0,
+    "gemma-4-26b-a4b-it": 0.1,
+    "gemma-4-31b-it": 0.2,
+    "grok-code-fast-1": 0.33,
+    "raptor-mini": 0.33
+  }
+}
+2026-05-21T21:25:48.8753695Z   GITHUB_AW_OTEL_TRACE_ID: 572fb9bca4814ea391dc9594b63f9bda
+2026-05-21T21:25:48.8754024Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 20d8beaa83327eda
+2026-05-21T21:25:48.8754307Z   GITHUB_AW_OTEL_JOB_START_MS: 1779398730198
+2026-05-21T21:25:48.8754665Z   GH_AW_SAFE_OUTPUTS: /home/runner/work/_temp/gh-aw/safeoutputs/outputs.jsonl
+2026-05-21T21:25:48.8755399Z   GH_AW_SAFE_OUTPUTS_API_KEY: '***'
+2026-05-21T21:25:48.8755647Z   GH_AW_SAFE_OUTPUTS_PORT: 3001
+2026-05-21T21:25:48.8756035Z   GITHUB_MCP_SERVER_TOKEN: ***
+2026-05-21T21:25:48.8756258Z ##[endgroup]
+2026-05-21T21:25:48.9198580Z [info] === MCP Gateway Startup ===
+2026-05-21T21:25:48.9202792Z [info] Engine: copilot
+2026-05-21T21:25:48.9203295Z [info] Runner temp: /home/runner/work/_temp
+2026-05-21T21:25:48.9203763Z [info] Gateway port: 8080
+2026-05-21T21:25:48.9204184Z [info] Gateway domain: host.docker.internal
+2026-05-21T21:25:48.9204584Z [info] 
+2026-05-21T21:25:48.9209205Z [info] Reading MCP configuration from stdin...
+2026-05-21T21:25:48.9210777Z [info] ⏱️  TIMING: Configuration read from stdin took 0ms
+2026-05-21T21:25:48.9211597Z [info] 
+2026-05-21T21:25:48.9212343Z [info] -------START MCP CONFIG-----------
+2026-05-21T21:25:48.9212916Z [info] {
+2026-05-21T21:25:48.9213335Z   "mcpServers": {
+2026-05-21T21:25:48.9213782Z     "github": {
+2026-05-21T21:25:48.9214226Z       "type": "stdio",
+2026-05-21T21:25:48.9214765Z       "container": "ghcr.io/github/github-mcp-server:v1.0.4",
+2026-05-21T21:25:48.9215371Z       "env": {
+2026-05-21T21:25:48.9215942Z         "GITHUB_HOST": "${GITHUB_SERVER_URL}",
+2026-05-21T21:25:48.9216550Z         "GITHUB_PERSONAL_ACCESS_TOKEN": "${GITHUB_MCP_SERVER_TOKEN}",
+2026-05-21T21:25:48.9217134Z         "GITHUB_READ_ONLY": "1",
+2026-05-21T21:25:48.9217658Z         "GITHUB_TOOLSETS": "context,repos,issues,pull_requests"
+2026-05-21T21:25:48.9218167Z       },
+2026-05-21T21:25:48.9218471Z       "guard-policies": {
+2026-05-21T21:25:48.9218857Z         "allow-only": {
+2026-05-21T21:25:48.9219210Z           "approval-labels": [],
+2026-05-21T21:25:48.9219578Z           "blocked-users": [],
+2026-05-21T21:25:48.9219973Z           "min-integrity": "none",
+2026-05-21T21:25:48.9220323Z           "repos": "all",
+2026-05-21T21:25:48.9220644Z           "trusted-users": []
+2026-05-21T21:25:48.9220948Z         }
+2026-05-21T21:25:48.9221223Z       }
+2026-05-21T21:25:48.9221652Z     },
+2026-05-21T21:25:48.9221940Z     "safeoutputs": {
+2026-05-21T21:25:48.9222267Z       "type": "http",
+2026-05-21T21:25:48.9222699Z       "url": "http://host.docker.internal:3001",
+2026-05-21T21:25:48.9223189Z       "headers": {
+2026-05-21T21:25:48.9223607Z         "Authorization": "${GH_AW_SAFE_OUTPUTS_API_KEY}"
+2026-05-21T21:25:48.9224117Z       },
+2026-05-21T21:25:48.9224430Z       "guard-policies": {
+2026-05-21T21:25:48.9224811Z         "write-sink": {
+2026-05-21T21:25:48.9225162Z           "accept": [
+2026-05-21T21:25:48.9225472Z             "*"
+2026-05-21T21:25:48.9225778Z           ]
+2026-05-21T21:25:48.9226061Z         }
+2026-05-21T21:25:48.9226344Z       }
+2026-05-21T21:25:48.9226625Z     }
+2026-05-21T21:25:48.9226904Z   },
+2026-05-21T21:25:48.9227192Z   "gateway": {
+2026-05-21T21:25:48.9227501Z     "port": 8080,
+2026-05-21T21:25:48.9227869Z     "domain": "host.docker.internal",
+2026-05-21T21:25:48.9228680Z     "apiKey": "***",
+2026-05-21T21:25:48.9229074Z     "payloadDir": "/tmp/gh-aw/mcp-payloads"
+2026-05-21T21:25:48.9229511Z   }
+2026-05-21T21:25:48.9229775Z }
+2026-05-21T21:25:48.9229934Z 
+2026-05-21T21:25:48.9230112Z [info] -------END MCP CONFIG-----------
+2026-05-21T21:25:48.9230526Z [info] 
+2026-05-21T21:25:48.9230847Z [info] Validating gateway configuration...
+2026-05-21T21:25:48.9231351Z [info] Configuration validated successfully
+2026-05-21T21:25:48.9232511Z [info] ⏱️  TIMING: Configuration validation took 0ms
+2026-05-21T21:25:48.9233027Z [info] 
+2026-05-21T21:25:48.9241076Z [info] Starting gateway with container: docker run -i --rm --network host --add-host host.docker.internal:127.0.0.1 --user 1001:1001 --group-add 118 -v /var/run/docker.sock:/var/run/docker.sock -e MCP_GATEWAY_PORT -e MCP_GATEWAY_DOMAIN -e MCP_GATEWAY_API_KEY -e MCP_GATEWAY_PAYLOAD_DIR -e MCP_GATEWAY_PAYLOAD_SIZE_THRESHOLD -e DOCKER_HOST=unix:///var/run/docker.sock -e DEBUG -e MCP_GATEWAY_LOG_DIR -e GH_AW_MCP_LOG_DIR -e GH_AW_SAFE_OUTPUTS -e GH_AW_SAFE_OUTPUTS_CONFIG_PATH -e GH_AW_SAFE_OUTPUTS_TOOLS_PATH -e GH_AW_ASSETS_BRANCH -e GH_AW_ASSETS_MAX_SIZE_KB -e GH_AW_ASSETS_ALLOWED_EXTS -e DEFAULT_BRANCH -e GITHUB_MCP_SERVER_TOKEN -e GITHUB_MCP_GUARD_MIN_INTEGRITY -e GITHUB_MCP_GUARD_REPOS -e GITHUB_REPOSITORY -e GITHUB_SERVER_URL -e GITHUB_SHA -e GITHUB_WORKSPACE -e GITHUB_TOKEN -e GITHUB_RUN_ID -e GITHUB_RUN_NUMBER -e GITHUB_RUN_ATTEMPT -e GITHUB_JOB -e GITHUB_ACTION -e GITHUB_EVENT_NAME -e GITHUB_EVENT_PATH -e GITHUB_ACTOR -e GITHUB_ACTOR_ID -e GITHUB_TRIGGERING_ACTOR -e GITHUB_WORKFLOW -e GITHUB_WORKFLOW_REF -e GITHUB_WORKFLOW_SHA -e GITHUB_REF -e GITHUB_REF_NAME -e GITHUB_REF_TYPE -e GITHUB_HEAD_REF -e GITHUB_BASE_REF -e GH_AW_SAFE_OUTPUTS_PORT -e GH_AW_SAFE_OUTPUTS_API_KEY -v /tmp/gh-aw/mcp-payloads:/tmp/gh-aw/mcp-payloads:rw -v /opt:/opt:ro -v /tmp:/tmp:rw -v /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows:rw ghcr.io/github/gh-aw-mcpg:v0.3.9
+2026-05-21T21:25:48.9253926Z [info] Full docker command: docker run -i --rm --network host --add-host host.docker.internal:127.0.0.1 --user 1001:1001 --group-add 118 -v /var/run/docker.sock:/var/run/docker.sock -e MCP_GATEWAY_PORT -e MCP_GATEWAY_DOMAIN -e MCP_GATEWAY_API_KEY -e MCP_GATEWAY_PAYLOAD_DIR -e MCP_GATEWAY_PAYLOAD_SIZE_THRESHOLD -e DOCKER_HOST=unix:///var/run/docker.sock -e DEBUG -e MCP_GATEWAY_LOG_DIR -e GH_AW_MCP_LOG_DIR -e GH_AW_SAFE_OUTPUTS -e GH_AW_SAFE_OUTPUTS_CONFIG_PATH -e GH_AW_SAFE_OUTPUTS_TOOLS_PATH -e GH_AW_ASSETS_BRANCH -e GH_AW_ASSETS_MAX_SIZE_KB -e GH_AW_ASSETS_ALLOWED_EXTS -e DEFAULT_BRANCH -e GITHUB_MCP_SERVER_TOKEN -e GITHUB_MCP_GUARD_MIN_INTEGRITY -e GITHUB_MCP_GUARD_REPOS -e GITHUB_REPOSITORY -e GITHUB_SERVER_URL -e GITHUB_SHA -e GITHUB_WORKSPACE -e GITHUB_TOKEN -e GITHUB_RUN_ID -e GITHUB_RUN_NUMBER -e GITHUB_RUN_ATTEMPT -e GITHUB_JOB -e GITHUB_ACTION -e GITHUB_EVENT_NAME -e GITHUB_EVENT_PATH -e GITHUB_ACTOR -e GITHUB_ACTOR_ID -e GITHUB_TRIGGERING_ACTOR -e GITHUB_WORKFLOW -e GITHUB_WORKFLOW_REF -e GITHUB_WORKFLOW_SHA -e GITHUB_REF -e GITHUB_REF_NAME -e GITHUB_REF_TYPE -e GITHUB_HEAD_REF -e GITHUB_BASE_REF -e GH_AW_SAFE_OUTPUTS_PORT -e GH_AW_SAFE_OUTPUTS_API_KEY -v /tmp/gh-aw/mcp-payloads:/tmp/gh-aw/mcp-payloads:rw -v /opt:/opt:ro -v /tmp:/tmp:rw -v /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows:rw ghcr.io/github/gh-aw-mcpg:v0.3.9
+2026-05-21T21:25:48.9262152Z [info] 
+2026-05-21T21:25:48.9262513Z [info] Gateway started with PID: 3842
+2026-05-21T21:25:48.9280644Z [info] ⏱️  TIMING: Gateway container launch took 4ms
+2026-05-21T21:25:48.9281226Z [info] Verifying gateway process is running...
+2026-05-21T21:25:48.9284144Z [info] Gateway process confirmed running (PID: 3842)
+2026-05-21T21:25:48.9284581Z [info] 
+2026-05-21T21:25:48.9284878Z [info] Waiting for gateway to initialize...
+2026-05-21T21:25:53.9320715Z [info] Checking if gateway process is still alive after initialization...
+2026-05-21T21:25:53.9321636Z [info] Gateway process is still running (PID: 3842)
+2026-05-21T21:25:53.9321965Z [info] 
+2026-05-21T21:25:53.9322289Z [info] Waiting for gateway to be ready...
+2026-05-21T21:25:53.9322845Z [info] Health endpoint: http://localhost:8080/health
+2026-05-21T21:25:53.9323272Z [info] (Note: MCP_GATEWAY_DOMAIN is 'host.docker.internal' for container access)
+2026-05-21T21:25:53.9323784Z [info] Retrying up to 120 times with exponential backoff (250ms to 1s, ~120s total timeout)
+2026-05-21T21:25:53.9324542Z [info] 
+2026-05-21T21:25:53.9327285Z [info] === Health Check Progress ===
+2026-05-21T21:25:53.9330082Z [info] Attempt 1/120 (0s elapsed)...
+2026-05-21T21:25:53.9513894Z [info] ✓ Health check succeeded on attempt 1 (0s elapsed)
+2026-05-21T21:25:53.9514574Z [info] === End Health Check Progress ===
+2026-05-21T21:25:53.9514996Z [info] 
+2026-05-21T21:25:53.9515328Z [info] Final HTTP code: 200
+2026-05-21T21:25:53.9515721Z [info] Total attempts: 1
+2026-05-21T21:25:53.9516898Z [info] Health response body: {"status":"healthy","specVersion":"1.9.0","gatewayVersion":"v0.3.9","servers":{"github":{"status":"running","uptime":3},"safeoutputs":{"status":"running","uptime":4}}}
+2026-05-21T21:25:53.9518418Z [info] Gateway is ready!
+2026-05-21T21:25:53.9518897Z [info] ⏱️  TIMING: Health check wait took 19ms
+2026-05-21T21:25:53.9519156Z [info] 
+2026-05-21T21:25:53.9519351Z [info] Reading gateway output configuration...
+2026-05-21T21:25:53.9519638Z [info] Gateway output received!
+2026-05-21T21:25:53.9519937Z [info] ⏱️  TIMING: Gateway output wait took 0ms
+2026-05-21T21:25:53.9520192Z [info] 
+2026-05-21T21:25:53.9520429Z [info] Converting gateway configuration to agent format...
+2026-05-21T21:25:53.9520738Z [info] Detected engine type: copilot
+2026-05-21T21:25:53.9520995Z [info] Using copilot converter...
+2026-05-21T21:25:53.9779584Z [info] Converting gateway configuration to Copilot format...
+2026-05-21T21:25:53.9783146Z [info] Input: /home/runner/work/_temp/gh-aw/mcp-config/gateway-output.json
+2026-05-21T21:25:53.9783823Z [info] Target domain: host.docker.internal:8080
+2026-05-21T21:25:53.9786109Z [info] Servers: 2 included, 0 filtered (CLI-mounted)
+2026-05-21T21:25:53.9791665Z [info] Copilot configuration written to /home/runner/.copilot/mcp-config.json
+2026-05-21T21:25:53.9792289Z [info] 
+2026-05-21T21:25:53.9792607Z [info] Converted configuration:
+2026-05-21T21:25:53.9792997Z [info] {
+2026-05-21T21:25:53.9793288Z   "mcpServers": {
+2026-05-21T21:25:53.9793643Z     "github": {
+2026-05-21T21:25:53.9793956Z       "headers": {
+2026-05-21T21:25:53.9794771Z         "Authorization": "***"
+2026-05-21T21:25:53.9794999Z       },
+2026-05-21T21:25:53.9795161Z       "type": "http",
+2026-05-21T21:25:53.9795436Z       "url": "http://host.docker.internal:8080/mcp/github",
+2026-05-21T21:25:53.9795727Z       "tools": [
+2026-05-21T21:25:53.9795912Z         "*"
+2026-05-21T21:25:53.9796080Z       ]
+2026-05-21T21:25:53.9796243Z     },
+2026-05-21T21:25:53.9796415Z     "safeoutputs": {
+2026-05-21T21:25:53.9796610Z       "headers": {
+2026-05-21T21:25:53.9797011Z         "Authorization": "***"
+2026-05-21T21:25:53.9797250Z       },
+2026-05-21T21:25:53.9797438Z       "type": "http",
+2026-05-21T21:25:53.9797738Z       "url": "http://host.docker.internal:8080/mcp/safeoutputs",
+2026-05-21T21:25:53.9798086Z       "tools": [
+2026-05-21T21:25:53.9798290Z         "*"
+2026-05-21T21:25:53.9798479Z       ]
+2026-05-21T21:25:53.9798650Z     }
+2026-05-21T21:25:53.9798823Z   }
+2026-05-21T21:25:53.9799016Z }
+2026-05-21T21:25:53.9819946Z [info] ⏱️  TIMING: Configuration conversion took 30ms
+2026-05-21T21:25:53.9820519Z [info] 
+2026-05-21T21:25:53.9820863Z [info] Checking MCP server functionality...
+2026-05-21T21:25:53.9821492Z [info] Running MCP server checks...
+2026-05-21T21:25:53.9859906Z Checking MCP servers...
+2026-05-21T21:25:53.9860221Z 
+2026-05-21T21:25:53.9932839Z ⏱️  TIMING: Configuration validation took 6ms
+2026-05-21T21:25:53.9933089Z 
+2026-05-21T21:25:54.0045808Z   Attempting connection (timeout: 10s)...
+2026-05-21T21:25:54.0532101Z ✓ github: connected
+2026-05-21T21:25:54.0542386Z ⏱️  TIMING: Server check for github took 59ms
+2026-05-21T21:25:54.0542967Z 
+2026-05-21T21:25:54.0656141Z   Attempting connection (timeout: 10s)...
+2026-05-21T21:25:54.1137124Z ✓ safeoutputs: connected
+2026-05-21T21:25:54.1147363Z ⏱️  TIMING: Server check for safeoutputs took 59ms
+2026-05-21T21:25:54.1147774Z 
+2026-05-21T21:25:54.1159697Z ⏱️  TIMING: Overall MCP server checks took 130ms
+2026-05-21T21:25:54.1160418Z 
+2026-05-21T21:25:54.1160692Z ✓ All checks passed (2 succeeded, 0 skipped)
+2026-05-21T21:25:54.1165118Z [info] ⏱️  TIMING: MCP server connectivity checks took 135ms
+2026-05-21T21:25:54.1165652Z [info] 
+2026-05-21T21:25:54.1165854Z [info] Saving MCP CLI manifest...
+2026-05-21T21:25:54.1174084Z [info] CLI manifest saved with 2 server(s): github, safeoutputs
+2026-05-21T21:25:54.1174645Z [info] 
+2026-05-21T21:25:54.1175012Z [info] Cleaning up gateway configuration file...
+2026-05-21T21:25:54.1175535Z [info] Gateway configuration file deleted
+2026-05-21T21:25:54.1175976Z [info] 
+2026-05-21T21:25:54.1176280Z [info] MCP gateway is running:
+2026-05-21T21:25:54.1176974Z [info]   - From host: http://localhost:8080
+2026-05-21T21:25:54.1177566Z [info]   - From containers: http://host.docker.internal:8080
+2026-05-21T21:25:54.1177944Z [info] Gateway PID: 3842
+2026-05-21T21:25:54.1178279Z [info] ⏱️  TIMING: Overall gateway startup took 5197ms
+2026-05-21T21:25:54.1178547Z [info] 

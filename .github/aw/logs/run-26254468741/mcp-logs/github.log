@@ -1,0 +1,61 @@
+[2026-05-21T21:35:30Z] [INFO] [difc] Guard policy: {"allow-only":{"approval-labels":[],"blocked-users":[],"min-integrity":"none","repos":"all","trusted-users":[]}}
+[2026-05-21T21:35:30Z] [INFO] [difc] Loaded discovered WASM guard from file: 00-github-guard.wasm
+[2026-05-21T21:35:30Z] [INFO] [difc] Registered guard 'github'
+[2026-05-21T21:35:30Z] [DEBUG] [backend] GetOrLaunch called for server: github
+[2026-05-21T21:35:30Z] [INFO] [backend] Launching MCP backend server: server=github, command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_HOST=http... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v1.0.4]
+[2026-05-21T21:35:32Z] [INFO] [backend] [stderr] time=2026-05-21T21:35:32.867Z level=INFO msg="starting server" version=v1.0.4 host=https://github.com dynamicToolsets=false readOnly=true lockdownEnabled=false
+[2026-05-21T21:35:32Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-05-21T21:35:32Z] [INFO] [backend] [stderr] time=2026-05-21T21:35:32.897Z level=INFO msg="server run start"
+[2026-05-21T21:35:32Z] [INFO] [backend] [stderr] time=2026-05-21T21:35:32.897Z level=INFO msg="server connecting"
+[2026-05-21T21:35:32Z] [INFO] [backend] [stderr] time=2026-05-21T21:35:32.902Z level=INFO msg="server session connected" session_id=""
+[2026-05-21T21:35:32Z] [INFO] [backend] [stderr] time=2026-05-21T21:35:32.917Z level=INFO msg="session initialized"
+[2026-05-21T21:35:32Z] [INFO] [backend] Successfully launched MCP backend server: server=github
+[2026-05-21T21:35:32Z] [INFO] [backend] Backend server info: name=github-mcp-server, version=v1.0.4
+[2026-05-21T21:35:33Z] [INFO] [backend] Successfully registered tools from github (took 2.221068555s)
+[2026-05-21T21:36:02Z] [INFO] [difc] Initializing guard session state: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, policy_source=server
+[2026-05-21T21:36:02Z] [INFO] [difc] Initializing guard session state: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, policy_source=server
+[2026-05-21T21:36:02Z] [INFO] [difc] Calling label_agent: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Calling label_agent: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Initializing guard session state: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, policy_source=server
+[2026-05-21T21:36:02Z] [INFO] [difc] Calling label_agent: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Initializing guard session state: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, policy_source=server
+[2026-05-21T21:36:02Z] [INFO] [difc] Calling label_agent: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Initializing guard session state: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, policy_source=server
+[2026-05-21T21:36:02Z] [INFO] [difc] Calling label_agent: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, policy={"allow-only":{"repos":"all","min-integrity":"none"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] label_agent response: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Guard policy initialized: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-05-21T21:36:02Z] [INFO] [difc] label_agent response: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Guard policy initialized: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-05-21T21:36:02Z] [INFO] [difc] label_agent response: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Guard policy initialized: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-05-21T21:36:02Z] [INFO] [difc] label_agent response: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Guard policy initialized: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-05-21T21:36:02Z] [INFO] [difc] label_agent response: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard=github, response={"agent":{"secrecy":[],"integrity":["none:all"]},"difc_mode":"filter","normalized_policy":{"min-integrity":"none","scope_kind":"All"}}
+[2026-05-21T21:36:02Z] [INFO] [difc] Guard policy initialized: session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1, guard_policy.source=server, difc_mode=filter, guard_policy.normalized=map[min-integrity:none scope_kind:all]
+[2026-05-21T21:36:02Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:02Z] [INFO] [backend] Launching MCP backend server for session 'FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1': server=github for session 'FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1', command=docker, args=[run --rm -i -e NO_COLOR=... -e TERM=... -e PYTHONUNBUFFERED=... -e GITHUB_HOST=http... -e GITHUB_PERSONAL_ACCESS_TOKEN=ghs_... -e GITHUB_READ_ONLY=... -e GITHUB_TOOLSETS=cont... ghcr.io/github/github-mcp-server:v1.0.4]
+[2026-05-21T21:36:02Z] [INFO] [backend] [stderr] time=2026-05-21T21:36:02.975Z level=INFO msg="starting server" version=v1.0.4 host=https://github.com dynamicToolsets=false readOnly=true lockdownEnabled=false
+[2026-05-21T21:36:02Z] [INFO] [backend] [stderr] GitHub MCP Server running on stdio
+[2026-05-21T21:36:02Z] [INFO] [backend] [stderr] time=2026-05-21T21:36:02.977Z level=INFO msg="server run start"
+[2026-05-21T21:36:02Z] [INFO] [backend] [stderr] time=2026-05-21T21:36:02.977Z level=INFO msg="server connecting"
+[2026-05-21T21:36:02Z] [INFO] [backend] [stderr] time=2026-05-21T21:36:02.977Z level=INFO msg="server session connected" session_id=""
+[2026-05-21T21:36:02Z] [INFO] [backend] Successfully launched MCP backend server for session 'FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1': server=github for session 'FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1'
+[2026-05-21T21:36:02Z] [INFO] [backend] [stderr] time=2026-05-21T21:36:02.978Z level=INFO msg="session initialized"
+[2026-05-21T21:36:03Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:03Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:10Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:10Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:14Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:14Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:27Z] [DEBUG] [backend] GetOrLaunchForSession called: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1
+[2026-05-21T21:36:27Z] [DEBUG] [backend] Reusing session connection: server=github, session=FPyVKWN1bdYTCELLJs02cWWIikPPndTKuP1MGNIdf3MqvhJ0V1CYE78x2C1

@@ -1,0 +1,29 @@
+﻿2026-05-21T21:34:58.0834587Z Current runner version: '2.334.0'
+2026-05-21T21:34:58.0883352Z ##[group]Runner Image Provisioner
+2026-05-21T21:34:58.0894761Z Hosted Compute Agent
+2026-05-21T21:34:58.0895368Z Version: 20260415.520
+2026-05-21T21:34:58.0896012Z Commit: af089020f5f67b61ccc91db6c07980876c02bf7b
+2026-05-21T21:34:58.0896730Z Build Date: 2026-04-15T18:07:08Z
+2026-05-21T21:34:58.0897414Z Worker ID: {a0bc51c0-edcd-4cbe-b5d0-b9c308ed1358}
+2026-05-21T21:34:58.0898185Z Azure Region: northcentralus
+2026-05-21T21:34:58.0898776Z ##[endgroup]
+2026-05-21T21:34:58.0900580Z ##[group]VM Image
+2026-05-21T21:34:58.0901204Z - OS: Linux (x64)
+2026-05-21T21:34:58.0901761Z - Source: Docker
+2026-05-21T21:34:58.0902326Z - Name: ubuntu:24.04
+2026-05-21T21:34:58.0902898Z - Version: 20260504.56.2
+2026-05-21T21:34:58.0903471Z ##[endgroup]
+2026-05-21T21:34:58.0915102Z ##[group]GITHUB_TOKEN Permissions
+2026-05-21T21:34:58.0917343Z Actions: read
+2026-05-21T21:34:58.0917958Z Contents: read
+2026-05-21T21:34:58.0918553Z Metadata: read
+2026-05-21T21:34:58.0919326Z ##[endgroup]
+2026-05-21T21:34:58.0921474Z Secret source: Actions
+2026-05-21T21:34:58.0922455Z Prepare workflow directory
+2026-05-21T21:34:58.2142174Z Prepare all required actions
+2026-05-21T21:34:58.2220258Z Getting action download info
+2026-05-21T21:34:58.7203360Z Download action repository 'github/gh-aw-actions@efa55847f72aadb03490d955263ff911bf758700' (SHA:efa55847f72aadb03490d955263ff911bf758700)
+2026-05-21T21:34:59.9448796Z Download action repository 'actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3' (SHA:3a2844b7e9c422d3c10d287c895573f7108da1b3)
+2026-05-21T21:35:00.2646868Z Download action repository 'actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd' (SHA:de0fac2e4500dabe0009e67214ff5f5447ce83dd)
+2026-05-21T21:35:00.3077788Z Download action repository 'actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a' (SHA:043fb46d1a93c77aae656e7c1c64a875d1fc6a0a)
+2026-05-21T21:35:00.7228228Z Complete job name: activation

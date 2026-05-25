@@ -1,0 +1,223 @@
+﻿2026-05-21T21:27:18.4019622Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-05-21T21:27:18.4021029Z with:
+2026-05-21T21:27:18.4027307Z   github-token: ***
+2026-05-21T21:27:18.4029582Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/handle_agent_failure.cjs');
+await main();
+
+2026-05-21T21:27:18.4032225Z   debug: false
+2026-05-21T21:27:18.4032825Z   user-agent: actions/github-script
+2026-05-21T21:27:18.4033746Z   result-encoding: json
+2026-05-21T21:27:18.4034811Z   retries: 0
+2026-05-21T21:27:18.4035454Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-05-21T21:27:18.4036098Z env:
+2026-05-21T21:27:18.4064394Z   GH_AW_MODEL_MULTIPLIERS: {
+  "version": "1",
+  "description": "Effective Tokens (ET) computation data per the gh-aw Effective Tokens Specification v0.2.0. Token class weights are applied first to normalize across token classes, then the per-model multiplier scales the result relative to the reference model. Model lifecycle: deprecated models must carry a deprecated marker for one minor version before removal (R-REG-009).",
+  "reference_model": "claude-sonnet-4.5",
+  "token_class_weights": {
+    "input": 1.0,
+    "cached_input": 0.1,
+    "output": 4.0,
+    "reasoning": 4.0,
+    "cache_write": 1.0
+  },
+  "multipliers": {
+    "claude-haiku-4-5": 0.33,
+    "claude-haiku-4.5": 0.33,
+    "claude-haiku-4-5-20251001": 0.33,
+    "claude-3-5-haiku": 0.1,
+    "claude-3-haiku": 0.1,
+    "claude-sonnet-4": 1.0,
+    "claude-sonnet-4-20250514": 1.0,
+    "claude-sonnet-4-5": 6.0,
+    "claude-sonnet-4.5": 6.0,
+    "claude-sonnet-4-5-20250929": 6.0,
+    "claude-sonnet-4-6": 9.0,
+    "claude-sonnet-4.6": 9.0,
+    "claude-3-5-sonnet": 1.0,
+    "claude-3-7-sonnet": 1.0,
+    "claude-3-sonnet": 1.0,
+    "claude-opus-4": 5.0,
+    "claude-opus-4-20250514": 5.0,
+    "claude-opus-4-1": 5.0,
+    "claude-opus-4-1-20250805": 5.0,
+    "claude-opus-4-5": 15.0,
+    "claude-opus-4-5-20251101": 15.0,
+    "claude-opus-4-6": 27.0,
+    "claude-opus-4-7": 27.0,
+    "claude-opus-4.5": 15.0,
+    "claude-opus-4.6": 27.0,
+    "claude-3-5-opus": 5.0,
+    "claude-3-opus": 5.0,
+    "gpt-4o": 0.33,
+    "gpt-4o-mini": 0.33,
+    "gpt-4.1": 1.0,
+    "gpt-4.1-2025-04-14": 1.0,
+    "gpt-41-copilot": 1.0,
+    "gpt-4.1-mini": 0.1,
+    "gpt-4.1-nano": 0.05,
+    "gpt-4-turbo": 1.0,
+    "gpt-4": 1.0,
+    "gpt-5": 1.0,
+    "gpt-5-2025-08-07": 1.0,
+    "gpt-5-search-api": 1.0,
+    "gpt-5-search-api-2025-10-14": 1.0,
+    "gpt-5-chat-latest": 1.0,
+    "gpt-5-mini": 0.33,
+    "gpt-5-mini-2025-08-07": 0.33,
+    "gpt-5-nano": 0.05,
+    "gpt-5-nano-2025-08-07": 0.05,
+    "gpt-5-pro": 2.0,
+    "gpt-5-pro-2025-10-06": 2.0,
+    "gpt-5.1": 3.0,
+    "gpt-5.1-2025-11-13": 3.0,
+    "gpt-5.1-chat-latest": 3.0,
+    "gpt-5-codex": 1.0,
+    "gpt-5.1-codex": 3.0,
+    "gpt-5.1-codex-mini": 0.33,
+    "gpt-5.1-codex-max": 3.0,
+    "gpt-5.1-codex-max-customsummarizer": 3.0,
+    "gpt-5.2": 3.0,
+    "gpt-5.2-2025-12-11": 3.0,
+    "gpt-5.2-chat-latest": 3.0,
+    "gpt-5.2-codex": 3.0,
+    "gpt-5.2-pro": 2.0,
+    "gpt-5.2-pro-2025-12-11": 2.0,
+    "gpt-5.3-chat-latest": 3.0,
+    "gpt-5.3-codex": 6.0,
+    "gpt-5.3-codex-api-preview": 6.0,
+    "gpt-5.4": 6.0,
+    "gpt-5.4-2026-03-05": 6.0,
+    "gpt-5.4-mini": 6.0,
+    "gpt-5.4-mini-2026-03-17": 6.0,
+    "gpt-5.4-nano": 0.05,
+    "gpt-5.4-nano-2026-03-17": 0.05,
+    "gpt-5.4-pro": 2.0,
+    "gpt-5.4-pro-2026-03-05": 2.0,
+    "gpt-5.5": 7.5,
+    "gpt-5.5-2026-04-23": 7.5,
+    "gpt-5.5-pro": 2.0,
+    "gpt-5.5-pro-2026-04-23": 2.0,
+    "o1": 3.0,
+    "o1-2024-12-17": 3.0,
+    "o1-mini": 0.5,
+    "o1-pro": 10.0,
+    "o1-pro-2025-03-19": 10.0,
+    "o3": 3.0,
+    "o3-2025-04-16": 3.0,
+    "o3-mini": 0.5,
+    "o3-mini-2025-01-31": 0.5,
+    "o3-pro": 10.0,
+    "o3-pro-2025-06-10": 10.0,
+    "o3-deep-research": 3.0,
+    "o3-deep-research-2025-06-26": 3.0,
+    "o4-mini": 0.5,
+    "o4-mini-2025-04-16": 0.5,
+    "o4-mini-deep-research": 0.5,
+    "o4-mini-deep-research-2025-06-26": 0.5,
+    "gemini-2.5-pro": 1.0,
+    "gemini-2.5-pro-preview-tts": 1.0,
+    "gemini-2.5-flash": 0.2,
+    "gemini-2.5-flash-native-audio-latest": 0.2,
+    "gemini-2.5-flash-native-audio-preview-09-2025": 0.2,
+    "gemini-2.5-flash-native-audio-preview-12-2025": 0.2,
+    "gemini-2.5-flash-preview-tts": 0.2,
+    "gemini-2.5-flash-image": 0.2,
+    "gemini-2.5-flash-lite": 0.1,
+    "gemini-2.0-flash": 0.1,
+    "gemini-2.0-flash-001": 0.1,
+    "gemini-2.0-flash-lite": 0.1,
+    "gemini-2.0-flash-lite-001": 0.1,
+    "gemini-1.5-pro": 1.0,
+    "gemini-1.5-flash": 0.1,
+    "gemini-flash-latest": 0.2,
+    "gemini-flash-lite-latest": 0.1,
+    "gemini-pro-latest": 1.0,
+    "gemini-3-flash-preview": 0.33,
+    "gemini-3-pro-preview": 6.0,
+    "gemini-3-pro-image-preview": 6.0,
+    "gemini-3.1-pro-preview": 6.0,
+    "gemini-3.1-pro-preview-customtools": 6.0,
+    "gemini-3.1-flash-live-preview": 0.1,
+    "gemini-3.1-flash-lite": 0.1,
+    "gemini-3.1-flash-lite-preview": 0.1,
+    "gemini-3.1-flash-image-preview": 0.33,
+    "gemini-3.1-flash-tts-preview": 0.1,
+    "gemini-3.5-flash": 14.0,
+    "gemini-2.5-computer-use-preview": 0.2,
+    "gemini-2.5-computer-use-preview-10-2025": 0.2,
+    "gemini-robotics-er-1.5-preview": 0.2,
+    "gemini-robotics-er-1.6-preview": 0.2,
+    "deep-research-max-preview-04-2026": 1.0,
+    "deep-research-preview-04-2026": 1.0,
+    "deep-research-pro-preview-12-2025": 1.0,
+    "gemma-4-26b-a4b-it": 0.1,
+    "gemma-4-31b-it": 0.2,
+    "grok-code-fast-1": 0.33,
+    "raptor-mini": 0.33
+  }
+}
+2026-05-21T21:27:18.4115513Z   GITHUB_AW_OTEL_TRACE_ID: 572fb9bca4814ea391dc9594b63f9bda
+2026-05-21T21:27:18.4116432Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: b81e513ded3079fc
+2026-05-21T21:27:18.4117152Z   GITHUB_AW_OTEL_JOB_START_MS: 1779398835471
+2026-05-21T21:27:18.4117856Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-05-21T21:27:18.4118543Z   GH_AW_WORKFLOW_NAME: Repo Status
+2026-05-21T21:27:18.4119539Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/repo-status.md@dcdf09723d42ef9b6c75335e4612fd145d4ccdaa
+2026-05-21T21:27:18.4122685Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/dcdf09723d42ef9b6c75335e4612fd145d4ccdaa/workflows/repo-status.md
+2026-05-21T21:27:18.4124845Z   GH_AW_RUN_URL: https://github.com/barea1/GitHub-Agentic-Workflows/actions/runs/26253994387
+2026-05-21T21:27:18.4126417Z   GH_AW_AGENT_CONCLUSION: failure
+2026-05-21T21:27:18.4127046Z   GH_AW_WORKFLOW_ID: daily-repo-status
+2026-05-21T21:27:18.4129061Z   GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: 168
+2026-05-21T21:27:18.4129788Z   GH_AW_ENGINE_ID: copilot
+2026-05-21T21:27:18.4130368Z   GH_AW_SECRET_VERIFICATION_RESULT: success
+2026-05-21T21:27:18.4131004Z   GH_AW_CHECKOUT_PR_SUCCESS: true
+2026-05-21T21:27:18.4132487Z   GH_AW_EFFECTIVE_TOKENS: 
+2026-05-21T21:27:18.4133257Z   GH_AW_EFFECTIVE_TOKENS_RATE_LIMIT_ERROR: false
+2026-05-21T21:27:18.4134444Z   GH_AW_INFERENCE_ACCESS_ERROR: false
+2026-05-21T21:27:18.4135465Z   GH_AW_MCP_POLICY_ERROR: false
+2026-05-21T21:27:18.4136069Z   GH_AW_AGENTIC_ENGINE_TIMEOUT: false
+2026-05-21T21:27:18.4137038Z   GH_AW_MODEL_NOT_SUPPORTED_ERROR: false
+2026-05-21T21:27:18.4140503Z   GH_AW_ENGINE_API_HOSTS: api.enterprise.githubcopilot.com,api.githubcopilot.com,api.business.githubcopilot.com,api.individual.githubcopilot.com
+2026-05-21T21:27:18.4142393Z   GH_AW_LOCKDOWN_CHECK_FAILED: false
+2026-05-21T21:27:18.4143561Z   GH_AW_STALE_LOCK_FILE_FAILED: false
+2026-05-21T21:27:18.4144404Z   GH_AW_GROUP_REPORTS: false
+2026-05-21T21:27:18.4145000Z   GH_AW_FAILURE_REPORT_AS_ISSUE: true
+2026-05-21T21:27:18.4146389Z   GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: true
+2026-05-21T21:27:18.4147598Z   GH_AW_MISSING_DATA_REPORT_AS_FAILURE: true
+2026-05-21T21:27:18.4148378Z   GH_AW_TIMEOUT_MINUTES: 20
+2026-05-21T21:27:18.4148934Z   GH_AW_MAX_EFFECTIVE_TOKENS: 25000000
+2026-05-21T21:27:18.4150207Z ##[endgroup]
+2026-05-21T21:27:18.6679151Z Agent conclusion: failure
+2026-05-21T21:27:18.6685277Z Workflow name: Repo Status
+2026-05-21T21:27:18.6773432Z Workflow ID: daily-repo-status
+2026-05-21T21:27:18.6774603Z Secret verification result: success
+2026-05-21T21:27:18.6775636Z Assignment error count: 0
+2026-05-21T21:27:18.6776203Z Assign copilot failure count: 0
+2026-05-21T21:27:18.6776793Z Create discussion error count: 0
+2026-05-21T21:27:18.6777374Z Code push failure count: 0
+2026-05-21T21:27:18.6777949Z Checkout PR success: true
+2026-05-21T21:27:18.6778491Z Effective tokens: (none)
+2026-05-21T21:27:18.6779065Z Configured max effective tokens: 25000000
+2026-05-21T21:27:18.6779713Z Effective tokens rate-limit error: false
+2026-05-21T21:27:18.6780367Z Inference access error: false
+2026-05-21T21:27:18.6780936Z MCP policy error: false
+2026-05-21T21:27:18.6781470Z Agentic engine timeout: false
+2026-05-21T21:27:18.6782072Z Model not supported error: false
+2026-05-21T21:27:18.6782669Z Push repo-memory result: 
+2026-05-21T21:27:18.6783484Z App token minting failed (safe_outputs/conclusion/activation): false/false/false
+2026-05-21T21:27:18.6784561Z Lockdown check failed: false
+2026-05-21T21:27:18.6785152Z Stale lock file check failed: false
+2026-05-21T21:27:18.6785765Z Cache memory enabled: false
+2026-05-21T21:27:18.6786330Z Missing tool report-as-failure: true
+2026-05-21T21:27:18.6786935Z Missing data report-as-failure: true
+2026-05-21T21:27:18.6787528Z Agent output content length: 13
+2026-05-21T21:27:19.3505849Z Searching for pull request from branch: master
+2026-05-21T21:27:20.2032171Z [@octokit/request] "POST https://api.github.com/repos/barea1/GitHub-Agentic-Workflows/issues" is deprecated. It is scheduled to be removed on Fri, 10 Mar 2028 00:00:00 GMT. See https://docs.github.com/en/rest/about-the-rest-api/api-versions
+2026-05-21T21:27:20.2036259Z No pull request found for branch: master
+2026-05-21T21:27:20.2037877Z Parent issue creation is disabled (group-reports: false)
+2026-05-21T21:27:20.2038900Z Checking for existing issue with precise metadata match for title: "[aw] Repo Status failed"
+2026-05-21T21:27:20.2041597Z No existing issue found, creating a new one
+2026-05-21T21:27:20.2042546Z No specific error patterns found; including last 10 line(s) of agent-stdio.log as fallback
+2026-05-21T21:27:20.2045413Z ✓ Created new issue #2: https://github.com/barea1/GitHub-Agentic-Workflows/issues/2

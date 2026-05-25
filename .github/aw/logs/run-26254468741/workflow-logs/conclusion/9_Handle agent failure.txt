@@ -1,0 +1,216 @@
+﻿2026-05-21T21:39:48.8357637Z ##[group]Run actions/github-script@3a2844b7e9c422d3c10d287c895573f7108da1b3
+2026-05-21T21:39:48.8360543Z with:
+2026-05-21T21:39:48.8362874Z   github-token: ***
+2026-05-21T21:39:48.8533507Z   script: const { setupGlobals } = require('/home/runner/work/_temp/gh-aw/actions/setup_globals.cjs');
+setupGlobals(core, github, context, exec, io, getOctokit);
+const { main } = require('/home/runner/work/_temp/gh-aw/actions/handle_agent_failure.cjs');
+await main();
+
+2026-05-21T21:39:48.8570393Z   debug: false
+2026-05-21T21:39:48.8573726Z   user-agent: actions/github-script
+2026-05-21T21:39:48.8576608Z   result-encoding: json
+2026-05-21T21:39:48.8577529Z   retries: 0
+2026-05-21T21:39:48.8580701Z   retry-exempt-status-codes: 400,401,403,404,422
+2026-05-21T21:39:48.8581807Z env:
+2026-05-21T21:39:48.9082738Z   GH_AW_MODEL_MULTIPLIERS: {
+  "version": "1",
+  "description": "Effective Tokens (ET) computation data per the gh-aw Effective Tokens Specification v0.2.0. Token class weights are applied first to normalize across token classes, then the per-model multiplier scales the result relative to the reference model. Model lifecycle: deprecated models must carry a deprecated marker for one minor version before removal (R-REG-009).",
+  "reference_model": "claude-sonnet-4.5",
+  "token_class_weights": {
+    "input": 1.0,
+    "cached_input": 0.1,
+    "output": 4.0,
+    "reasoning": 4.0,
+    "cache_write": 1.0
+  },
+  "multipliers": {
+    "claude-haiku-4-5": 0.33,
+    "claude-haiku-4.5": 0.33,
+    "claude-haiku-4-5-20251001": 0.33,
+    "claude-3-5-haiku": 0.1,
+    "claude-3-haiku": 0.1,
+    "claude-sonnet-4": 1.0,
+    "claude-sonnet-4-20250514": 1.0,
+    "claude-sonnet-4-5": 6.0,
+    "claude-sonnet-4.5": 6.0,
+    "claude-sonnet-4-5-20250929": 6.0,
+    "claude-sonnet-4-6": 9.0,
+    "claude-sonnet-4.6": 9.0,
+    "claude-3-5-sonnet": 1.0,
+    "claude-3-7-sonnet": 1.0,
+    "claude-3-sonnet": 1.0,
+    "claude-opus-4": 5.0,
+    "claude-opus-4-20250514": 5.0,
+    "claude-opus-4-1": 5.0,
+    "claude-opus-4-1-20250805": 5.0,
+    "claude-opus-4-5": 15.0,
+    "claude-opus-4-5-20251101": 15.0,
+    "claude-opus-4-6": 27.0,
+    "claude-opus-4-7": 27.0,
+    "claude-opus-4.5": 15.0,
+    "claude-opus-4.6": 27.0,
+    "claude-3-5-opus": 5.0,
+    "claude-3-opus": 5.0,
+    "gpt-4o": 0.33,
+    "gpt-4o-mini": 0.33,
+    "gpt-4.1": 1.0,
+    "gpt-4.1-2025-04-14": 1.0,
+    "gpt-41-copilot": 1.0,
+    "gpt-4.1-mini": 0.1,
+    "gpt-4.1-nano": 0.05,
+    "gpt-4-turbo": 1.0,
+    "gpt-4": 1.0,
+    "gpt-5": 1.0,
+    "gpt-5-2025-08-07": 1.0,
+    "gpt-5-search-api": 1.0,
+    "gpt-5-search-api-2025-10-14": 1.0,
+    "gpt-5-chat-latest": 1.0,
+    "gpt-5-mini": 0.33,
+    "gpt-5-mini-2025-08-07": 0.33,
+    "gpt-5-nano": 0.05,
+    "gpt-5-nano-2025-08-07": 0.05,
+    "gpt-5-pro": 2.0,
+    "gpt-5-pro-2025-10-06": 2.0,
+    "gpt-5.1": 3.0,
+    "gpt-5.1-2025-11-13": 3.0,
+    "gpt-5.1-chat-latest": 3.0,
+    "gpt-5-codex": 1.0,
+    "gpt-5.1-codex": 3.0,
+    "gpt-5.1-codex-mini": 0.33,
+    "gpt-5.1-codex-max": 3.0,
+    "gpt-5.1-codex-max-customsummarizer": 3.0,
+    "gpt-5.2": 3.0,
+    "gpt-5.2-2025-12-11": 3.0,
+    "gpt-5.2-chat-latest": 3.0,
+    "gpt-5.2-codex": 3.0,
+    "gpt-5.2-pro": 2.0,
+    "gpt-5.2-pro-2025-12-11": 2.0,
+    "gpt-5.3-chat-latest": 3.0,
+    "gpt-5.3-codex": 6.0,
+    "gpt-5.3-codex-api-preview": 6.0,
+    "gpt-5.4": 6.0,
+    "gpt-5.4-2026-03-05": 6.0,
+    "gpt-5.4-mini": 6.0,
+    "gpt-5.4-mini-2026-03-17": 6.0,
+    "gpt-5.4-nano": 0.05,
+    "gpt-5.4-nano-2026-03-17": 0.05,
+    "gpt-5.4-pro": 2.0,
+    "gpt-5.4-pro-2026-03-05": 2.0,
+    "gpt-5.5": 7.5,
+    "gpt-5.5-2026-04-23": 7.5,
+    "gpt-5.5-pro": 2.0,
+    "gpt-5.5-pro-2026-04-23": 2.0,
+    "o1": 3.0,
+    "o1-2024-12-17": 3.0,
+    "o1-mini": 0.5,
+    "o1-pro": 10.0,
+    "o1-pro-2025-03-19": 10.0,
+    "o3": 3.0,
+    "o3-2025-04-16": 3.0,
+    "o3-mini": 0.5,
+    "o3-mini-2025-01-31": 0.5,
+    "o3-pro": 10.0,
+    "o3-pro-2025-06-10": 10.0,
+    "o3-deep-research": 3.0,
+    "o3-deep-research-2025-06-26": 3.0,
+    "o4-mini": 0.5,
+    "o4-mini-2025-04-16": 0.5,
+    "o4-mini-deep-research": 0.5,
+    "o4-mini-deep-research-2025-06-26": 0.5,
+    "gemini-2.5-pro": 1.0,
+    "gemini-2.5-pro-preview-tts": 1.0,
+    "gemini-2.5-flash": 0.2,
+    "gemini-2.5-flash-native-audio-latest": 0.2,
+    "gemini-2.5-flash-native-audio-preview-09-2025": 0.2,
+    "gemini-2.5-flash-native-audio-preview-12-2025": 0.2,
+    "gemini-2.5-flash-preview-tts": 0.2,
+    "gemini-2.5-flash-image": 0.2,
+    "gemini-2.5-flash-lite": 0.1,
+    "gemini-2.0-flash": 0.1,
+    "gemini-2.0-flash-001": 0.1,
+    "gemini-2.0-flash-lite": 0.1,
+    "gemini-2.0-flash-lite-001": 0.1,
+    "gemini-1.5-pro": 1.0,
+    "gemini-1.5-flash": 0.1,
+    "gemini-flash-latest": 0.2,
+    "gemini-flash-lite-latest": 0.1,
+    "gemini-pro-latest": 1.0,
+    "gemini-3-flash-preview": 0.33,
+    "gemini-3-pro-preview": 6.0,
+    "gemini-3-pro-image-preview": 6.0,
+    "gemini-3.1-pro-preview": 6.0,
+    "gemini-3.1-pro-preview-customtools": 6.0,
+    "gemini-3.1-flash-live-preview": 0.1,
+    "gemini-3.1-flash-lite": 0.1,
+    "gemini-3.1-flash-lite-preview": 0.1,
+    "gemini-3.1-flash-image-preview": 0.33,
+    "gemini-3.1-flash-tts-preview": 0.1,
+    "gemini-3.5-flash": 14.0,
+    "gemini-2.5-computer-use-preview": 0.2,
+    "gemini-2.5-computer-use-preview-10-2025": 0.2,
+    "gemini-robotics-er-1.5-preview": 0.2,
+    "gemini-robotics-er-1.6-preview": 0.2,
+    "deep-research-max-preview-04-2026": 1.0,
+    "deep-research-preview-04-2026": 1.0,
+    "deep-research-pro-preview-12-2025": 1.0,
+    "gemma-4-26b-a4b-it": 0.1,
+    "gemma-4-31b-it": 0.2,
+    "grok-code-fast-1": 0.33,
+    "raptor-mini": 0.33
+  }
+}
+2026-05-21T21:39:48.9643479Z   GITHUB_AW_OTEL_TRACE_ID: f51e9ceb794c366a9d162c22f3cf223c
+2026-05-21T21:39:48.9644819Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 9b4dd5c777401df8
+2026-05-21T21:39:48.9645884Z   GITHUB_AW_OTEL_JOB_START_MS: 1779399573926
+2026-05-21T21:39:48.9647632Z   GH_AW_AGENT_OUTPUT: /tmp/gh-aw/agent_output.json
+2026-05-21T21:39:48.9648750Z   GH_AW_WORKFLOW_NAME: Repo Status
+2026-05-21T21:39:48.9650410Z   GH_AW_WORKFLOW_SOURCE: githubnext/agentics/workflows/repo-status.md@dcdf09723d42ef9b6c75335e4612fd145d4ccdaa
+2026-05-21T21:39:48.9654841Z   GH_AW_WORKFLOW_SOURCE_URL: https://github.com/githubnext/agentics/blob/dcdf09723d42ef9b6c75335e4612fd145d4ccdaa/workflows/repo-status.md
+2026-05-21T21:39:48.9661921Z   GH_AW_RUN_URL: https://github.com/barea1/GitHub-Agentic-Workflows/actions/runs/26254468741
+2026-05-21T21:39:48.9663640Z   GH_AW_AGENT_CONCLUSION: success
+2026-05-21T21:39:48.9664569Z   GH_AW_WORKFLOW_ID: daily-repo-status
+2026-05-21T21:39:48.9696915Z   GH_AW_ACTION_FAILURE_ISSUE_EXPIRES_HOURS: 168
+2026-05-21T21:39:48.9700084Z   GH_AW_ENGINE_ID: copilot
+2026-05-21T21:39:48.9709838Z   GH_AW_SECRET_VERIFICATION_RESULT: success
+2026-05-21T21:39:48.9719474Z   GH_AW_CHECKOUT_PR_SUCCESS: true
+2026-05-21T21:39:48.9721809Z   GH_AW_EFFECTIVE_TOKENS: 1621757
+2026-05-21T21:39:48.9756319Z   GH_AW_EFFECTIVE_TOKENS_RATE_LIMIT_ERROR: false
+2026-05-21T21:39:48.9757445Z   GH_AW_INFERENCE_ACCESS_ERROR: false
+2026-05-21T21:39:48.9758400Z   GH_AW_MCP_POLICY_ERROR: false
+2026-05-21T21:39:48.9759281Z   GH_AW_AGENTIC_ENGINE_TIMEOUT: false
+2026-05-21T21:39:48.9760306Z   GH_AW_MODEL_NOT_SUPPORTED_ERROR: false
+2026-05-21T21:39:48.9851602Z   GH_AW_ENGINE_API_HOSTS: api.enterprise.githubcopilot.com,api.githubcopilot.com,api.business.githubcopilot.com,api.individual.githubcopilot.com
+2026-05-21T21:39:48.9855371Z   GH_AW_LOCKDOWN_CHECK_FAILED: false
+2026-05-21T21:39:48.9872392Z   GH_AW_STALE_LOCK_FILE_FAILED: false
+2026-05-21T21:39:48.9875362Z   GH_AW_GROUP_REPORTS: false
+2026-05-21T21:39:48.9879339Z   GH_AW_FAILURE_REPORT_AS_ISSUE: true
+2026-05-21T21:39:48.9880351Z   GH_AW_MISSING_TOOL_REPORT_AS_FAILURE: true
+2026-05-21T21:39:48.9881400Z   GH_AW_MISSING_DATA_REPORT_AS_FAILURE: true
+2026-05-21T21:39:48.9883654Z   GH_AW_TIMEOUT_MINUTES: 20
+2026-05-21T21:39:48.9887352Z   GH_AW_MAX_EFFECTIVE_TOKENS: 25000000
+2026-05-21T21:39:48.9888343Z ##[endgroup]
+2026-05-21T21:39:50.1954439Z Agent conclusion: success
+2026-05-21T21:39:50.2286519Z Workflow name: Repo Status
+2026-05-21T21:39:50.2341585Z Workflow ID: daily-repo-status
+2026-05-21T21:39:50.2395448Z Secret verification result: success
+2026-05-21T21:39:50.2527888Z Assignment error count: 0
+2026-05-21T21:39:50.2533231Z Assign copilot failure count: 0
+2026-05-21T21:39:50.2572319Z Create discussion error count: 0
+2026-05-21T21:39:50.2577064Z Code push failure count: 0
+2026-05-21T21:39:50.2586053Z Checkout PR success: true
+2026-05-21T21:39:50.2608644Z Effective tokens: 270292
+2026-05-21T21:39:50.2676872Z Configured max effective tokens: 25000000
+2026-05-21T21:39:50.2918745Z Effective tokens rate-limit error: false
+2026-05-21T21:39:50.2990167Z Inference access error: false
+2026-05-21T21:39:50.2991313Z MCP policy error: false
+2026-05-21T21:39:50.2992391Z Agentic engine timeout: false
+2026-05-21T21:39:50.2993712Z Model not supported error: false
+2026-05-21T21:39:50.3011975Z Push repo-memory result: 
+2026-05-21T21:39:50.3015822Z App token minting failed (safe_outputs/conclusion/activation): false/false/false
+2026-05-21T21:39:50.3017273Z Lockdown check failed: false
+2026-05-21T21:39:50.3067111Z Stale lock file check failed: false
+2026-05-21T21:39:50.3068654Z Cache memory enabled: false
+2026-05-21T21:39:50.3069565Z Missing tool report-as-failure: true
+2026-05-21T21:39:50.3070552Z Missing data report-as-failure: true
+2026-05-21T21:39:50.3077867Z Agent output content length: 3033
+2026-05-21T21:39:50.3175607Z Agent job did not fail and no assignment/discussion/code-push/push-repo-memory/app-token/lockdown/stale-lock-file/report-incomplete/cache-miss/missing-tool/missing-data errors and has safe outputs (conclusion: success), skipping failure handling

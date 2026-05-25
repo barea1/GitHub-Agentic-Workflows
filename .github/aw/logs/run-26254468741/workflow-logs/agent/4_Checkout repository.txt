@@ -1,0 +1,268 @@
+﻿2026-05-21T21:35:14.8023579Z ##[group]Run actions/checkout@de0fac2e4500dabe0009e67214ff5f5447ce83dd
+2026-05-21T21:35:14.8024960Z with:
+2026-05-21T21:35:14.8025699Z   persist-credentials: false
+2026-05-21T21:35:14.8026856Z   repository: barea1/GitHub-Agentic-Workflows
+2026-05-21T21:35:14.8028165Z   token: ***
+2026-05-21T21:35:14.8028901Z   ssh-strict: true
+2026-05-21T21:35:14.8029685Z   ssh-user: git
+2026-05-21T21:35:14.8030417Z   clean: true
+2026-05-21T21:35:14.8031198Z   sparse-checkout-cone-mode: true
+2026-05-21T21:35:14.8032151Z   fetch-depth: 1
+2026-05-21T21:35:14.8032913Z   fetch-tags: false
+2026-05-21T21:35:14.8033711Z   show-progress: true
+2026-05-21T21:35:14.8034499Z   lfs: false
+2026-05-21T21:35:14.8035232Z   submodules: false
+2026-05-21T21:35:14.8036324Z   set-safe-directory: true
+2026-05-21T21:35:14.8037192Z env:
+2026-05-21T21:35:14.8037901Z   DEFAULT_BRANCH: master
+2026-05-21T21:35:14.8038773Z   GH_AW_ASSETS_ALLOWED_EXTS: 
+2026-05-21T21:35:14.8039696Z   GH_AW_ASSETS_BRANCH: 
+2026-05-21T21:35:14.8040748Z   GH_AW_ASSETS_MAX_SIZE_KB: 0
+2026-05-21T21:35:14.8041818Z   GH_AW_MCP_LOG_DIR: /tmp/gh-aw/mcp-logs/safeoutputs
+2026-05-21T21:35:14.8043047Z   GH_AW_WORKFLOW_ID_SANITIZED: dailyrepostatus
+2026-05-21T21:35:14.8089895Z   GH_AW_MODEL_MULTIPLIERS: {
+  "version": "1",
+  "description": "Effective Tokens (ET) computation data per the gh-aw Effective Tokens Specification v0.2.0. Token class weights are applied first to normalize across token classes, then the per-model multiplier scales the result relative to the reference model. Model lifecycle: deprecated models must carry a deprecated marker for one minor version before removal (R-REG-009).",
+  "reference_model": "claude-sonnet-4.5",
+  "token_class_weights": {
+    "input": 1.0,
+    "cached_input": 0.1,
+    "output": 4.0,
+    "reasoning": 4.0,
+    "cache_write": 1.0
+  },
+  "multipliers": {
+    "claude-haiku-4-5": 0.33,
+    "claude-haiku-4.5": 0.33,
+    "claude-haiku-4-5-20251001": 0.33,
+    "claude-3-5-haiku": 0.1,
+    "claude-3-haiku": 0.1,
+    "claude-sonnet-4": 1.0,
+    "claude-sonnet-4-20250514": 1.0,
+    "claude-sonnet-4-5": 6.0,
+    "claude-sonnet-4.5": 6.0,
+    "claude-sonnet-4-5-20250929": 6.0,
+    "claude-sonnet-4-6": 9.0,
+    "claude-sonnet-4.6": 9.0,
+    "claude-3-5-sonnet": 1.0,
+    "claude-3-7-sonnet": 1.0,
+    "claude-3-sonnet": 1.0,
+    "claude-opus-4": 5.0,
+    "claude-opus-4-20250514": 5.0,
+    "claude-opus-4-1": 5.0,
+    "claude-opus-4-1-20250805": 5.0,
+    "claude-opus-4-5": 15.0,
+    "claude-opus-4-5-20251101": 15.0,
+    "claude-opus-4-6": 27.0,
+    "claude-opus-4-7": 27.0,
+    "claude-opus-4.5": 15.0,
+    "claude-opus-4.6": 27.0,
+    "claude-3-5-opus": 5.0,
+    "claude-3-opus": 5.0,
+    "gpt-4o": 0.33,
+    "gpt-4o-mini": 0.33,
+    "gpt-4.1": 1.0,
+    "gpt-4.1-2025-04-14": 1.0,
+    "gpt-41-copilot": 1.0,
+    "gpt-4.1-mini": 0.1,
+    "gpt-4.1-nano": 0.05,
+    "gpt-4-turbo": 1.0,
+    "gpt-4": 1.0,
+    "gpt-5": 1.0,
+    "gpt-5-2025-08-07": 1.0,
+    "gpt-5-search-api": 1.0,
+    "gpt-5-search-api-2025-10-14": 1.0,
+    "gpt-5-chat-latest": 1.0,
+    "gpt-5-mini": 0.33,
+    "gpt-5-mini-2025-08-07": 0.33,
+    "gpt-5-nano": 0.05,
+    "gpt-5-nano-2025-08-07": 0.05,
+    "gpt-5-pro": 2.0,
+    "gpt-5-pro-2025-10-06": 2.0,
+    "gpt-5.1": 3.0,
+    "gpt-5.1-2025-11-13": 3.0,
+    "gpt-5.1-chat-latest": 3.0,
+    "gpt-5-codex": 1.0,
+    "gpt-5.1-codex": 3.0,
+    "gpt-5.1-codex-mini": 0.33,
+    "gpt-5.1-codex-max": 3.0,
+    "gpt-5.1-codex-max-customsummarizer": 3.0,
+    "gpt-5.2": 3.0,
+    "gpt-5.2-2025-12-11": 3.0,
+    "gpt-5.2-chat-latest": 3.0,
+    "gpt-5.2-codex": 3.0,
+    "gpt-5.2-pro": 2.0,
+    "gpt-5.2-pro-2025-12-11": 2.0,
+    "gpt-5.3-chat-latest": 3.0,
+    "gpt-5.3-codex": 6.0,
+    "gpt-5.3-codex-api-preview": 6.0,
+    "gpt-5.4": 6.0,
+    "gpt-5.4-2026-03-05": 6.0,
+    "gpt-5.4-mini": 6.0,
+    "gpt-5.4-mini-2026-03-17": 6.0,
+    "gpt-5.4-nano": 0.05,
+    "gpt-5.4-nano-2026-03-17": 0.05,
+    "gpt-5.4-pro": 2.0,
+    "gpt-5.4-pro-2026-03-05": 2.0,
+    "gpt-5.5": 7.5,
+    "gpt-5.5-2026-04-23": 7.5,
+    "gpt-5.5-pro": 2.0,
+    "gpt-5.5-pro-2026-04-23": 2.0,
+    "o1": 3.0,
+    "o1-2024-12-17": 3.0,
+    "o1-mini": 0.5,
+    "o1-pro": 10.0,
+    "o1-pro-2025-03-19": 10.0,
+    "o3": 3.0,
+    "o3-2025-04-16": 3.0,
+    "o3-mini": 0.5,
+    "o3-mini-2025-01-31": 0.5,
+    "o3-pro": 10.0,
+    "o3-pro-2025-06-10": 10.0,
+    "o3-deep-research": 3.0,
+    "o3-deep-research-2025-06-26": 3.0,
+    "o4-mini": 0.5,
+    "o4-mini-2025-04-16": 0.5,
+    "o4-mini-deep-research": 0.5,
+    "o4-mini-deep-research-2025-06-26": 0.5,
+    "gemini-2.5-pro": 1.0,
+    "gemini-2.5-pro-preview-tts": 1.0,
+    "gemini-2.5-flash": 0.2,
+    "gemini-2.5-flash-native-audio-latest": 0.2,
+    "gemini-2.5-flash-native-audio-preview-09-2025": 0.2,
+    "gemini-2.5-flash-native-audio-preview-12-2025": 0.2,
+    "gemini-2.5-flash-preview-tts": 0.2,
+    "gemini-2.5-flash-image": 0.2,
+    "gemini-2.5-flash-lite": 0.1,
+    "gemini-2.0-flash": 0.1,
+    "gemini-2.0-flash-001": 0.1,
+    "gemini-2.0-flash-lite": 0.1,
+    "gemini-2.0-flash-lite-001": 0.1,
+    "gemini-1.5-pro": 1.0,
+    "gemini-1.5-flash": 0.1,
+    "gemini-flash-latest": 0.2,
+    "gemini-flash-lite-latest": 0.1,
+    "gemini-pro-latest": 1.0,
+    "gemini-3-flash-preview": 0.33,
+    "gemini-3-pro-preview": 6.0,
+    "gemini-3-pro-image-preview": 6.0,
+    "gemini-3.1-pro-preview": 6.0,
+    "gemini-3.1-pro-preview-customtools": 6.0,
+    "gemini-3.1-flash-live-preview": 0.1,
+    "gemini-3.1-flash-lite": 0.1,
+    "gemini-3.1-flash-lite-preview": 0.1,
+    "gemini-3.1-flash-image-preview": 0.33,
+    "gemini-3.1-flash-tts-preview": 0.1,
+    "gemini-3.5-flash": 14.0,
+    "gemini-2.5-computer-use-preview": 0.2,
+    "gemini-2.5-computer-use-preview-10-2025": 0.2,
+    "gemini-robotics-er-1.5-preview": 0.2,
+    "gemini-robotics-er-1.6-preview": 0.2,
+    "deep-research-max-preview-04-2026": 1.0,
+    "deep-research-preview-04-2026": 1.0,
+    "deep-research-pro-preview-12-2025": 1.0,
+    "gemma-4-26b-a4b-it": 0.1,
+    "gemma-4-31b-it": 0.2,
+    "grok-code-fast-1": 0.33,
+    "raptor-mini": 0.33
+  }
+}
+2026-05-21T21:35:14.8148325Z   GITHUB_AW_OTEL_TRACE_ID: f51e9ceb794c366a9d162c22f3cf223c
+2026-05-21T21:35:14.8149651Z   GITHUB_AW_OTEL_PARENT_SPAN_ID: 4f4e84469b38fe22
+2026-05-21T21:35:14.8150802Z   GITHUB_AW_OTEL_JOB_START_MS: 1779399314735
+2026-05-21T21:35:14.8151807Z ##[endgroup]
+2026-05-21T21:35:14.9130847Z Syncing repository: barea1/GitHub-Agentic-Workflows
+2026-05-21T21:35:14.9133499Z ##[group]Getting Git version info
+2026-05-21T21:35:14.9135149Z Working directory is '/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows'
+2026-05-21T21:35:14.9137643Z [command]/usr/bin/git version
+2026-05-21T21:35:14.9171521Z git version 2.54.0
+2026-05-21T21:35:14.9194490Z ##[endgroup]
+2026-05-21T21:35:14.9209879Z Temporarily overriding HOME='/home/runner/work/_temp/0a1bcf17-76dd-4c47-93f7-a75d9fba4bb6' before making global git config changes
+2026-05-21T21:35:14.9213981Z Adding repository directory to the temporary git global config as a safe directory
+2026-05-21T21:35:14.9218212Z [command]/usr/bin/git config --global --add safe.directory /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows
+2026-05-21T21:35:14.9264984Z Deleting the contents of '/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows'
+2026-05-21T21:35:14.9268870Z ##[group]Initializing the repository
+2026-05-21T21:35:14.9273423Z [command]/usr/bin/git init /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows
+2026-05-21T21:35:14.9347718Z hint: Using 'master' as the name for the initial branch. This default branch name
+2026-05-21T21:35:14.9349948Z hint: will change to "main" in Git 3.0. To configure the initial branch name
+2026-05-21T21:35:14.9352268Z hint: to use in all of your new repositories, which will suppress this warning,
+2026-05-21T21:35:14.9354431Z hint: call:
+2026-05-21T21:35:14.9355490Z hint:
+2026-05-21T21:35:14.9357049Z hint: 	git config --global init.defaultBranch <name>
+2026-05-21T21:35:14.9358809Z hint:
+2026-05-21T21:35:14.9360396Z hint: Names commonly chosen instead of 'master' are 'main', 'trunk' and
+2026-05-21T21:35:14.9363182Z hint: 'development'. The just-created branch can be renamed via this command:
+2026-05-21T21:35:14.9365661Z hint:
+2026-05-21T21:35:14.9366963Z hint: 	git branch -m <name>
+2026-05-21T21:35:14.9368177Z hint:
+2026-05-21T21:35:14.9370067Z hint: Disable this message with "git config set advice.defaultBranchName false"
+2026-05-21T21:35:14.9372638Z Initialized empty Git repository in /home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git/
+2026-05-21T21:35:14.9376622Z [command]/usr/bin/git remote add origin https://github.com/barea1/GitHub-Agentic-Workflows
+2026-05-21T21:35:14.9404459Z ##[endgroup]
+2026-05-21T21:35:14.9406686Z ##[group]Disabling automatic garbage collection
+2026-05-21T21:35:14.9408647Z [command]/usr/bin/git config --local gc.auto 0
+2026-05-21T21:35:14.9439665Z ##[endgroup]
+2026-05-21T21:35:14.9441611Z ##[group]Setting up auth
+2026-05-21T21:35:14.9443051Z Removing SSH command configuration
+2026-05-21T21:35:14.9447246Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-21T21:35:14.9516374Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-21T21:35:14.9822344Z Removing HTTP extra header
+2026-05-21T21:35:14.9829058Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-21T21:35:14.9865025Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-21T21:35:15.0096912Z Removing includeIf entries pointing to credentials config files
+2026-05-21T21:35:15.0103650Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-21T21:35:15.0139717Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-21T21:35:15.0375931Z [command]/usr/bin/git config --file /home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config http.https://github.com/.extraheader AUTHORIZATION: basic ***
+2026-05-21T21:35:15.0414801Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git.path /home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.0445759Z [command]/usr/bin/git config --local includeIf.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.0479587Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.0511096Z [command]/usr/bin/git config --local includeIf.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.0545206Z ##[endgroup]
+2026-05-21T21:35:15.0546970Z ##[group]Fetching the repository
+2026-05-21T21:35:15.0553850Z [command]/usr/bin/git -c protocol.version=2 fetch --no-tags --prune --no-recurse-submodules --depth=1 origin +50d559ede5b8a934958519905ca29d11ce669d71:refs/remotes/origin/master
+2026-05-21T21:35:15.2641653Z From https://github.com/barea1/GitHub-Agentic-Workflows
+2026-05-21T21:35:15.2642639Z  * [new ref]         50d559ede5b8a934958519905ca29d11ce669d71 -> origin/master
+2026-05-21T21:35:15.2681167Z [command]/usr/bin/git branch --list --remote origin/master
+2026-05-21T21:35:15.2709161Z   origin/master
+2026-05-21T21:35:15.2717622Z [command]/usr/bin/git rev-parse refs/remotes/origin/master
+2026-05-21T21:35:15.2740963Z 50d559ede5b8a934958519905ca29d11ce669d71
+2026-05-21T21:35:15.2744741Z ##[endgroup]
+2026-05-21T21:35:15.2745209Z ##[group]Determining the checkout info
+2026-05-21T21:35:15.2746309Z ##[endgroup]
+2026-05-21T21:35:15.2750402Z [command]/usr/bin/git sparse-checkout disable
+2026-05-21T21:35:15.2794957Z [command]/usr/bin/git config --local --unset-all extensions.worktreeConfig
+2026-05-21T21:35:15.2822857Z ##[group]Checking out the ref
+2026-05-21T21:35:15.2827638Z [command]/usr/bin/git checkout --progress --force -B master refs/remotes/origin/master
+2026-05-21T21:35:15.2879999Z Reset branch 'master'
+2026-05-21T21:35:15.2882689Z branch 'master' set up to track 'origin/master'.
+2026-05-21T21:35:15.2887519Z ##[endgroup]
+2026-05-21T21:35:15.2927735Z [command]/usr/bin/git log -1 --format=%H
+2026-05-21T21:35:15.2952469Z 50d559ede5b8a934958519905ca29d11ce669d71
+2026-05-21T21:35:15.2961521Z ##[group]Removing auth
+2026-05-21T21:35:15.2962001Z Removing SSH command configuration
+2026-05-21T21:35:15.2965394Z [command]/usr/bin/git config --local --name-only --get-regexp core\.sshCommand
+2026-05-21T21:35:15.2997544Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'core\.sshCommand' && git config --local --unset-all 'core.sshCommand' || :"
+2026-05-21T21:35:15.3231201Z Removing HTTP extra header
+2026-05-21T21:35:15.3236291Z [command]/usr/bin/git config --local --name-only --get-regexp http\.https\:\/\/github\.com\/\.extraheader
+2026-05-21T21:35:15.3269389Z [command]/usr/bin/git submodule foreach --recursive sh -c "git config --local --name-only --get-regexp 'http\.https\:\/\/github\.com\/\.extraheader' && git config --local --unset-all 'http.https://github.com/.extraheader' || :"
+2026-05-21T21:35:15.3498502Z Removing includeIf entries pointing to credentials config files
+2026-05-21T21:35:15.3502128Z [command]/usr/bin/git config --local --name-only --get-regexp ^includeIf\.gitdir:
+2026-05-21T21:35:15.3528355Z includeif.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git.path
+2026-05-21T21:35:15.3529780Z includeif.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git/worktrees/*.path
+2026-05-21T21:35:15.3530793Z includeif.gitdir:/github/workspace/.git.path
+2026-05-21T21:35:15.3531528Z includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-05-21T21:35:15.3538928Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git.path
+2026-05-21T21:35:15.3562334Z /home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3572970Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git.path /home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3607302Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git/worktrees/*.path
+2026-05-21T21:35:15.3632104Z /home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3641083Z [command]/usr/bin/git config --local --unset includeif.gitdir:/home/runner/work/GitHub-Agentic-Workflows/GitHub-Agentic-Workflows/.git/worktrees/*.path /home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3679099Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git.path
+2026-05-21T21:35:15.3703141Z /github/runner_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3712891Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git.path /github/runner_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3745425Z [command]/usr/bin/git config --local --get-all includeif.gitdir:/github/workspace/.git/worktrees/*.path
+2026-05-21T21:35:15.3767925Z /github/runner_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3774849Z [command]/usr/bin/git config --local --unset includeif.gitdir:/github/workspace/.git/worktrees/*.path /github/runner_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config
+2026-05-21T21:35:15.3809030Z [command]/usr/bin/git submodule foreach --recursive git config --local --show-origin --name-only --get-regexp remote.origin.url
+2026-05-21T21:35:15.4035685Z Removing credentials config '/home/runner/work/_temp/git-credentials-5015a606-6da8-403c-ad2c-56585528fa10.config'
+2026-05-21T21:35:15.4043712Z ##[endgroup]

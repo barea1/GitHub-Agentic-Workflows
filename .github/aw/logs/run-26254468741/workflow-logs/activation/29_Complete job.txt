@@ -1,0 +1,10 @@
+﻿2026-05-21T21:35:07.4325304Z Evaluate and set job outputs
+2026-05-21T21:35:07.4337194Z Set output 'engine_id'
+2026-05-21T21:35:07.4339332Z Set output 'lockdown_check_failed'
+2026-05-21T21:35:07.4340435Z Set output 'model'
+2026-05-21T21:35:07.4341101Z Set output 'secret_verification_result'
+2026-05-21T21:35:07.4341876Z Set output 'setup-parent-span-id'
+2026-05-21T21:35:07.4342604Z Set output 'setup-span-id'
+2026-05-21T21:35:07.4343300Z Set output 'setup-trace-id'
+2026-05-21T21:35:07.4344362Z Set output 'stale_lock_file_failed'
+2026-05-21T21:35:07.4345547Z Cleaning up orphan processes
